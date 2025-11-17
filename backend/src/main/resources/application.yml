@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: course-management-system
+
+server:
+  port: 8181
+
+application:
+  cors:
+    origins: http://localhost:4200,http://localhost:8080

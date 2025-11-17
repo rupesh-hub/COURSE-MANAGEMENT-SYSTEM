@@ -1,0 +1,141 @@
+name: COURSE MANAGEMENT SYSTEM BACKEND PIPELINE
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - backend/**
+      - docker/backend/**
+      - docker/docker-compose.yml
+      - .github/workflows/backend-pipeline.yaml
+
+jobs:
+  compile:
+    runs-on: self-hosted
+    name: Compile project
+    steps:
+      - name: Checkout repository
+        usages: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup java environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'corretto'
+
+      - name: Compile project
+        run: |
+          cd backend
+          ./mvnw clean compile 
+
+  unit-tests:
+    runs-on: self-hosted
+    name: Unit tests
+    steps:
+      - name: Checkout repository
+        usages: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup java environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'corretto'
+
+      - name: Running unit tests
+        run: |
+          cd backend
+          ./mvnw clean test
+
+  build:
+    runs-on: self-hosted
+    name: Build project
+    needs: [ compile, unit-tests ]
+    steps:
+      - name: Checkout repository
+        usages: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup java environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'corretto'
+
+      - name: Build project
+        run: |
+          cd backend
+          ./mvnw clean package
+  
+
+  build-image:
+    runs-on: self-hosted
+    name: Build docker image
+    needs: [ build ]
+    steps:
+      - name: Checkout repository
+        usages: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup java environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'corretto'
+
+      - name: Build project
+        run: |
+          cd backend
+          ./mvnw clean package
+
+      - name: Extract project version
+        id: extract_version
+        run: |
+          cd backend
+          echo "VERSION=$(./mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
+
+      - name: Login to Docker Hub
+        usages: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_SECRET_KEY }}
+
+      - name: Build and Push to Docker Hub
+        usages: docker/build-push-action@v5
+        with:
+          context: backend
+          file: docker/backend/Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/course-management-system:${{ steps.extract_version.outputs.VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/course-management-system:latest
+          build-args: |
+            PROFILE=default
+            APP_VERSION=${{ steps.extract_version.outputs.VERSION }}
+
+  deploy:
+    name: Deploy Backend
+    runs-on: self-hosted
+    needs: [ build-image ]
+    steps:
+      - name: Create deployment folder
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p deployment"
+
+      - name: Copy docker compose file
+        run: |
+          scp docker/docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:deployment/docker-compose.yml
+
+      - name: Set Environment Variables
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
+          cd deployment
+          docker-compose -f docker-compose.yml pull -q
+          docker-compose -f docker-compose.yml up -d
+          EOF
+          
