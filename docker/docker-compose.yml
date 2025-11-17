@@ -10,15 +10,15 @@ services:
       - course-management-system-nw
 
 
-  course-management-system-frontend:
-    container_name: course-management-system-frontend
-    image: rupesh1997/course-management-system-frontend:1.0.0
-    depends_on:
-      - course-management-system
-    ports:
-      - "8080:8080"
-    networks:
-      - course-management-system-nw
+#  course-management-system-frontend:
+#    container_name: course-management-system-frontend
+#    image: rupesh1997/course-management-system-frontend:1.0.0
+#    depends_on:
+#      - course-management-system
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - course-management-system-nw
 
 
 networks:
