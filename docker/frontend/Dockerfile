@@ -9,7 +9,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/dist/frontend/browser /usr/share/nginx/html
 
-EXPOSE 8080
+EXPOSE 3000
 
 # docker build -t rupesh1997/course-management-system-frontend:1.0.0 -f ../docker/frontend/Dockerfile .
 # docker run -d -p 8080:8080 --name course-management-system-frontend rupesh1997/course-management-system-frontend:1.0.0
