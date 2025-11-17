@@ -11,7 +11,7 @@ export class MessageService {
 
   public message = (): Observable<any> => {
     return this._http.get<any>(
-      `http://localhost:8181/message`
+      `http://192.168.1.70:8181/message`
     )
   }
 
