@@ -7,4 +7,4 @@ server:
 
 application:
   cors:
-    origins: http://localhost:4200,http://localhost:8080
+    origins: http://localhost:4200,http://localhost:8080,http://192.168.1.70:8080

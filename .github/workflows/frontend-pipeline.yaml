@@ -63,10 +63,10 @@ jobs:
         run: |
           scp docker/docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:deployment/docker-compose.yml
 
-      - name: Deploy using Docker Compose
+      - name: Set Environment Variables
         run: |
           ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
-            cd deployment
-            docker compose -f docker-compose.yml pull
-            docker compose -f docker-compose.yml up -d
+          cd deployment
+          docker-compose -f docker-compose.yml pull -q
+          docker-compose -f docker-compose.yml up -d
           EOF
