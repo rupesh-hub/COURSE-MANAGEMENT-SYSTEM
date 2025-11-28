@@ -5,70 +5,309 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10dc7ab7-631c-4944-854d-5dfd006ba3ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/audit/AuditAwareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/constants/AccountConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/AccountsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/CustomerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/ErrorResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/ResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/entity/Accounts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/entity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/entity/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/exceptions/CustomerAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/exceptions/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/mapper/AccountsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/mapper/CustomerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/repository/AccountsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/resources/AccountResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/service/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/service/IAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/AuditAwareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/CardsApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/constants/CardsConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/dto/CardsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/dto/ErrorResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/dto/ResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/entity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/entity/Cards.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/exceptions/CardAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/exceptions/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/mapper/CardsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/repository/CardsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/resources/CardResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/service/CardsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/service/ICardsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/test/java/com/alfarays/CardsApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/LoansApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/audit/AuditAwareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/constants/LoansConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/dto/ErrorResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/dto/LoansDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/dto/ResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/entity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/entity/Loans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/exceptions/LoanAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/exceptions/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/mapper/LoansMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/repository/LoansRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/resource/LoansResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/service/ILoansService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/service/LoansServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/test/java/com/alfarays/LoansApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/StorageProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/mapper/CommentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/model/CommentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/model/CommentResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/resource/CommentResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/service/ICommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/entity/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/entity/Lesson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/mapper/LessonMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/model/LessonRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/model/LessonResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/repository/LessonRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/service/ILessonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/service/LessonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/mapper/CourseMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/model/CourseRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/model/CourseResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/repository/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/resource/CourseResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/service/CourseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/service/ICourseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/exception/CourseAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/AuditAwareImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/GlobalResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/service/ImageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/Image.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/RoleRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/RoleResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/resource/RoleResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/resource/UserResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/IRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-staging.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/backend/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/default/common-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/default/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/frontend/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/models/roles.enum.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/interceptors/auth.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/interceptors/error.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/shared/directives/role.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/shared/pipes/date.pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/styles/global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/environments/environment.production.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/.github/workflows/authorization-server-pipeline.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/.github/workflows/frontend-pipeline.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/.github/workflows/resource-server-pipeline.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/AuthorizationServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/configuration/CorsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/configuration/OptimizedSecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/entity/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/entity/OAuthClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/model/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/model/RegisterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/repository/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/repository/OAuthClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/service/DatabaseRegisteredClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/service/DatabaseUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/java/com/alfarays/util/KeyPairProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/authorization-server-application/src/test/java/com/alfarays/AuthorizationServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/backend/authorization-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/backend/authorization-server/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/backend/resource-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/backend/resource-server/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/docker-compose/common-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/docker-compose/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/docker/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/.vscode/extensions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/.vscode/tasks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/app.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/pages/callback/callback.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/pages/dashboard/dashboard.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/pages/guards/auth.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/pages/interceptors/oauth-token.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/pages/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/pages/register/register.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/service/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/service/oauth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/app/service/resource.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/src/styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/frontend/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/ResourceServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/configuration/CorsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/configuration/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/repository/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/resource/CategoryResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/resource/ProductResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/resource/WelcomeResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/java/com/alfarays/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/resources/templates/callback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/test/java/com/alfarays/ResourceServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/cart-service/src/main/java/com/alfarays/model/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/cart-service/src/main/java/com/alfarays/resource/WelcomeResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/docker/backend/product-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/docker/backend/product-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/docker/docker-compose/default/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/order-service/src/main/java/com/alfarays/model/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/order-service/src/main/java/com/alfarays/resource/WelcomeResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/payment-service/src/main/java/com/alfarays/model/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PURELY-GOODS/payment-service/src/main/java/com/alfarays/resource/WelcomeResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/cart-service-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/cart-service-staging.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/order-service-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/order-service-staging.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/order-service.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/payment-service-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/payment-service-staging.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/cart-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/cart-service/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/order-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/order-service/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/payment-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/payment-service/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/product-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/docker/backend/product-service/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../microservices-3.4.1/section8/configserver/src/main/resources/config/eurekaserver.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/.github/workflows/product-service-pipeline.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/src/main/java/com/alfarays/AuthorizationServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/src/main/resources/application-dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/src/main/resources/application-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/src/main/resources/application-staging.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/AUTHORIZATION-SERVICE/src/test/java/com/alfarays/AuthorizationServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CART-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CART-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CART-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CART-SERVICE/src/main/java/com/alfarays/CartServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CART-SERVICE/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CART-SERVICE/src/test/java/com/alfarays/CartServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CONFIG-SERVER/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CONFIG-SERVER/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CONFIG-SERVER/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CONFIG-SERVER/src/main/java/com/alfarays/ConfigServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CONFIG-SERVER/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/CONFIG-SERVER/src/test/java/com/alfarays/ConfigServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/DISCOVERY-SERVER/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/DISCOVERY-SERVER/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/DISCOVERY-SERVER/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/DISCOVERY-SERVER/src/main/java/com/alfarays/DiscoveryServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/DISCOVERY-SERVER/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/DISCOVERY-SERVER/src/test/java/com/alfarays/DiscoveryServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/GATEWAY-SERVER/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/GATEWAY-SERVER/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/GATEWAY-SERVER/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/GATEWAY-SERVER/src/main/java/com/alfarays/GatewayServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/GATEWAY-SERVER/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/GATEWAY-SERVER/src/test/java/com/alfarays/GatewayServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/IMAGES/EVENT FLOW &amp; SERVICE CHOREOGRAPHY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/IMAGES/inventory-management-flow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/NOTIFICATION-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/NOTIFICATION-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/NOTIFICATION-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/NOTIFICATION-SERVICE/src/main/java/com/alfarays/NotificationServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/NOTIFICATION-SERVICE/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/NOTIFICATION-SERVICE/src/test/java/com/alfarays/NotificationServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/ORDER-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/ORDER-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/ORDER-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/ORDER-SERVICE/src/main/java/com/alfarays/OrderServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/ORDER-SERVICE/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/ORDER-SERVICE/src/test/java/com/alfarays/OrderServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PAYMENT-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PAYMENT-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PAYMENT-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PAYMENT-SERVICE/src/main/java/com/alfarays/PaymentServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PAYMENT-SERVICE/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PAYMENT-SERVICE/src/test/java/com/alfarays/PaymentServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/ProductServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/audit/AuditAwareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/configuration/StorageProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/entity/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/entity/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/entity/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/entity/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/exception/ProductAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/exception/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/mapper/CategoryMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/mapper/ProductMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/CategoryRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/CategoryResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/GlobalResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/ImageRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/ImageResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/model/ProductResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/repository/CategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/repository/ImageRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/resource/CategoryResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/resource/ProductResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/service/CategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/service/ICategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/service/IProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/service/ImageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/java/com/alfarays/specification/ProductSpecification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/resources/application-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/resources/application-staging.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/main/resources/images/e3e85240-62f6-4c03-bd9e-77ef00b80bf6_MRP.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/PRODUCT-SERVICE/src/test/java/com/alfarays/ProductServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/USER-SERVICE/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/USER-SERVICE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/USER-SERVICE/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/USER-SERVICE/src/main/java/com/alfarays/UserServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/USER-SERVICE/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/USER-SERVICE/src/test/java/com/alfarays/UserServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/backend/order-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/backend/order-service/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/backend/product-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/backend/product-service/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/default/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/prod/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/staging/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/frontend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/backend-pipeline.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/frontend-pipeline.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/BackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/model/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/resource/WelcomeResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/message.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/.github/workflows/deploy.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/src/main/java/com/alfarays/resource/WelcomeResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/src/main/java/com/alfarays/resource/WelcomeResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../DEVOPS/DAY-01/backend/src/main/resources/application-dev.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../DSA/com.alsarays.app/MASTERCLASS/twodarray/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../DSA/com.alsarays.app/MASTERCLASS/twodarray/TwoDArray.java" beforeDir="false" />
@@ -89,11 +328,77 @@
       <change beforePath="$PROJECT_DIR$/../../../DSA/com.alsarays.app/linkendlist/LinkedList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../DSA/com.alsarays.app/linkendlist/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../DSA/com.alsarays.app/linkendlist/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../GRAPHQL-DEMO/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../GRAPHQL-DEMO/src/main/resources/graphql/schema.graphqls" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../IBA/GAMES-AND-AI/DIJ-ALGO.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../IBA/GAMES-AND-AI/GAMES-AND-AI-CW1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../IBA/GAMES-AND-AI/a_ star.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../IBA/GAMES-AND-AI/dijkstraWeightedGraph.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../IBA/GAMES-AND-AI/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/audit/AuditAwareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/constants/AccountConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/AccountsDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/CustomerDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/ErrorResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/dto/ResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/entity/Accounts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/entity/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/entity/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/exceptions/CustomerAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/exceptions/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/exceptions/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/mapper/AccountsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/mapper/CustomerMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/repository/AccountsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/repository/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/resources/AccountResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/service/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/java/com/alfarays/service/IAccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/ACCOUNT/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/AuditAwareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/CardsApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/constants/CardsConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/dto/CardsDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/dto/ErrorResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/dto/ResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/entity/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/entity/Cards.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/exceptions/CardAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/exceptions/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/exceptions/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/mapper/CardsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/repository/CardsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/resources/CardResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/service/CardsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/java/com/alfarays/service/ICardsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/CARDS/src/test/java/com/alfarays/CardsApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/LoansApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/audit/AuditAwareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/constants/LoansConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/dto/ErrorResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/dto/LoansDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/dto/ResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/entity/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/entity/Loans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/exceptions/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/exceptions/LoanAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/exceptions/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/mapper/LoansMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/repository/LoansRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/resource/LoansResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/service/ILoansService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/java/com/alfarays/service/LoansServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MICROSERVICES-EASYBANK/LOANS/src/test/java/com/alfarays/LoansApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../SERIES 2025/BOOK-STORE-MANAGEMENT-SYSTEM/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../SPRING-BOOT-ANGULAR-AWS/AZURE-DEMO/.gitattributes" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../SPRING-BOOT-ANGULAR-AWS/AZURE-DEMO/.gitignore" beforeDir="false" />
@@ -116,6 +421,9 @@
       <change beforePath="$PROJECT_DIR$/../../../SPRING-BOOT-ANGULAR-AWS/FOOD-DELIVERY-APP/USER-SERVICE/src/main/java/com/alfarays/UserServiceApplication.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../SPRING-BOOT-ANGULAR-AWS/FOOD-DELIVERY-APP/USER-SERVICE/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../SPRING-BOOT-ANGULAR-AWS/FOOD-DELIVERY-APP/USER-SERVICE/src/test/java/com/alfarays/UserServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SPRING_SECURITY_MASTER_COURSE/practices/SPRING-SECURITY-SEC-1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SPRING_SECURITY_MASTER_COURSE/practices/SPRING-SECURITY-SEC-1/src/main/java/com/alfarays/controller/WelcomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SPRING_SECURITY_MASTER_COURSE/spring-security-3.3.0/section4/README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +434,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -135,9 +444,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="35Z1BjsDydMaE2mEDjcOlsQhUgl" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -161,7 +470,7 @@
     "Spring Boot.BackendApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/rupeshdulal/Desktop/DEVOPS-FULL-COURSE/DEVOPS-PRACTICES/COURSE-MANAGEMENT-SYSTEM",
+    "last_opened_file_path": "/Users/rupeshdulal/Desktop/DEVOPS-FULL-COURSE/DEVOPS-PRACTICES/COURSE-MANAGEMENT-SYSTEM/backend/src/main/java/com/alfarays/course/comment",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -173,9 +482,17 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/app/shared/components/modal" />
+      <recent name="$PROJECT_DIR$/frontend/src/app" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.alfarays.user.service" />
     </key>
   </component>
   <component name="RunManager">
@@ -195,7 +512,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763302646850</updated>
-      <workItem from="1763302648103" duration="14782000" />
+      <workItem from="1763302648103" duration="15370000" />
+      <workItem from="1764302515495" duration="8011000" />
     </task>
     <servers />
   </component>

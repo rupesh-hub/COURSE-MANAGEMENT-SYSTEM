@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: course-management-system
+  profiles:
+    active: default
+  config:
+    import:
+      - "application-prod.yaml"
+      - "application-staging.yaml"
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/courses
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update     # create | update | validate | none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+    info:
+      access: read_only
+  info:
+    env:
+      enabled: true
+
+server:
+  port: 8181
+  servlet:
+    context-path: /api/v1.0.0/cms
+
+application:
+  cors:
+    origins: http://localhost:4200,http://localhost:8080,http://192.168.1.70:3000
+
+info:
+  app:
+    name: Course Management System
+    description: Handles courses management.
+    version: 1.0.0
+    profile: default
+    owner: Rupesh Dulal
+    website: https://www.alfarays.tech
+  build:
+    timestamp: "@timestamp@"
+  developer:
+    name: "Rupesh Dulal"
+    email: "rupeshdulal672@gmail.com"
+    github: "https://github.com/rupeshdulal"

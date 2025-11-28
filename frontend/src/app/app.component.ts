@@ -1,6 +1,5 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {MessageService} from './services/message.service';
 
 
 export interface Data {
@@ -8,30 +7,13 @@ export interface Data {
 }
 
 @Component({
-  selector: 'app-root',
+  selector: 'cms-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  standalone: true
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  private _messageService: MessageService = inject(MessageService);
-
-  data: Data;
-
-  ngOnInit() {
-    this._messageService.message()
-      .subscribe(
-        (data: any) => {
-          console.log(data);
-          this.data = data;
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-
-
-  }
 
 }
