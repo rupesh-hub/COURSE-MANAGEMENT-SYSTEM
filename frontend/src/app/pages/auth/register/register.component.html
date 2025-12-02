@@ -1,1 +1,304 @@
-<p>register works!</p>
+<div class="bg-cream min-h-screen flex items-center justify-center font-sans">
+  <div class="w-full max-w-5xl px-6 py-10">
+
+
+    <form [formGroup]="registerForm">
+      <div class="bg-white rounded-xl shadow-md p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- LEFT SIDE -->
+        <div>
+          <!-- Header -->
+          <h1 class="text-3xl font-bold text-sage-dark mb-1">Create Account</h1>
+          <p class="text-sage text-sm mb-6">Join us today</p>
+
+          <!-- Profile Image Upload -->
+          <div class="text-center mb-8">
+            <label class="inline-flex flex-col items-center cursor-pointer">
+
+              <!-- Circle container -->
+              <div
+                class="w-24 h-24 bg-cream rounded-full flex items-center justify-center overflow-hidden border-2 border-dashed border-sage-light hover:bg-cream/80 transition">
+
+                <!-- Show Preview If Image Exists -->
+                <img *ngIf="profilePreview"
+                     [src]="profilePreview"
+                     alt="Profile Preview"
+                     class="w-full h-full object-cover"/>
+
+                <!-- Show Icon If No Image -->
+                <i *ngIf="!profilePreview" class="fas fa-camera text-sage text-3xl"></i>
+              </div>
+
+              <p class="text-sm text-sage mt-3">Upload photo</p>
+
+              <input
+                type="file"
+                hidden
+                accept="image/*"
+                id="profile"
+                (change)="onProfileSelected($event)"
+              />
+            </label>
+          </div>
+
+          <!-- First & last name -->
+          <div class="grid grid-cols-2 gap-4 mb-5">
+            <div>
+              <div>
+                <label class="block text-sage-dark text-sm font-semibold mb-1">First Name</label>
+                <input type="text" placeholder="John"
+                       class="w-full px-4 py-3 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+              focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                       id="firstname"
+                       name="firstname"
+                       formControlName="firstname"
+                />
+              </div>
+              <!--Error Message-->
+              <div *ngIf="firstname.invalid && firstname.touched" class="error-message">
+                <small *ngIf="firstname.errors?.['required']">
+                  * Firstname is required.
+                </small>
+                <small *ngIf="firstname.errors?.['minlength']">
+                  * Minimum {{ firstname.errors?.['minlength']?.requiredLength }} characters required.
+                </small>
+                <small *ngIf="firstname.errors?.['space']">
+                  * Space not allowed.
+                </small>
+              </div>
+            </div>
+
+            <div>
+
+              <div>
+                <label class="block text-sage-dark text-sm font-semibold mb-1">Last Name</label>
+                <input type="text" placeholder="Doe"
+                       class="w-full px-4 py-3 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+              focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                       id="lastname"
+                       name="lastname"
+                       formControlName="lastname"/>
+              </div>
+
+              <div *ngIf="lastname.invalid && lastname.touched" class="error-message">
+                <small *ngIf="lastname.errors?.['required']">
+                  * Lastname is required.
+                </small>
+
+                <small *ngIf="lastname.errors?.['minlength']">
+                  * Minimum {{ lastname.errors?.['minlength']?.requiredLength }} characters required.
+                </small>
+
+                <small *ngIf="lastname.errors?.['space']">
+                  * Space not allowed.
+                </small>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Username -->
+          <div class="mb-5">
+            <div>
+              <label class="block text-sage-dark text-sm font-semibold mb-1">Username</label>
+              <input type="text" placeholder="johndoe"
+                     class="w-full px-4 py-3 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+            focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                     id="username"
+                     name="username"
+                     formControlName="username"/>
+            </div>
+            <div *ngIf="username.invalid && username.touched" class="error-message">
+              <small *ngIf="username.errors?.['required']">
+                * Username is required.
+              </small>
+              <small *ngIf="username.errors?.['pattern']">
+                * {{ username.errors?.['pattern'].message }}.
+              </small>
+              <small *ngIf="username.errors?.['forbidden']">
+                * Username is already taken.
+              </small>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div>
+            <div>
+              <label class="block text-sage-dark text-sm font-semibold mb-1">Bio</label>
+              <textarea rows="4" placeholder="About you..."
+                        class="w-full px-4 py-3 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+            focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition resize-none"
+                        id="bio"
+                        name="bio"
+                        formControlName="bio">
+            </textarea>
+            </div>
+
+            <div *ngIf="bio.invalid && bio.touched">
+              <small *ngIf="bio.errors?.['required']">
+                * Bio is required.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="flex flex-col justify-center">
+
+          <!-- Email -->
+          <div class="mb-5">
+            <div>
+              <label class="block text-sage-dark text-sm font-semibold mb-1">Email</label>
+              <input type="email" placeholder="john@example.com"
+                     class="w-full px-4 py-3 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+            focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                     id="email"
+                     name="email"
+                     formControlName="email"/>
+            </div>
+
+            <div *ngIf="email.invalid && email.touched" class="error-message">
+              <small *ngIf="email.errors?.['required']">
+                * Email address is required.
+              </small>
+
+              <small *ngIf="email.errors?.['email']">
+                * Enter a valid email address.
+              </small>
+
+              <small *ngIf="email.errors?.['forbidden']">
+                * Email address is already taken.
+              </small>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-5">
+            <div>
+              <label class="block text-sage-dark text-sm font-semibold mb-1">Phone</label>
+              <input type="tel" placeholder="+1 555 0000"
+                     class="w-full px-4 py-3 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+            focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                     id="phone"
+                     name="phone"
+                     formControlName="phone"/>
+            </div>
+
+            <div *ngIf="phone.invalid && phone.touched" class="error-message">
+              <small *ngIf="phone.errors?.['required']">
+                * Phone number is required.
+              </small>
+            </div>
+
+          </div>
+
+          <!-- Password -->
+          <div class="mb-5">
+            <div>
+              <label class="block text-sage-dark text-sm font-semibold mb-1">Password</label>
+              <div class="relative">
+                <input type="password" placeholder="••••••••"
+                       class="w-full px-4 py-3 pr-10 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+              focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                       id="password"
+                       name="password"
+                       formControlName="password">
+                <button type="button" class="absolute right-3 top-3 text-sage/60 hover:text-sage">
+                  <i class="fas fa-eye text-lg"></i>
+                </button>
+              </div>
+            </div>
+            <div *ngIf="password.invalid && password.touched" class="error-message">
+              <small *ngIf="password.errors?.['required']">
+                * Password is required.
+              </small>
+
+              <small *ngIf="password.errors?.['pattern']">
+                * {{ password.errors?.['pattern'].message }}
+              </small>
+
+              <small *ngIf="password.errors?.['space']">
+                * Space not allowed.
+              </small>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="mb-6">
+            <div>
+              <label class="block text-sage-dark text-sm font-semibold mb-1">Confirm Password</label>
+              <div class="relative">
+                <input type="password" placeholder="••••••••"
+                       class="w-full px-4 py-3 pr-10 text-base border border-sage-light rounded-lg text-sage-dark placeholder-sage/60
+              focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/20 transition"
+                       id="confirmPassword"
+                       name="confirmPassword"
+                       formControlName="confirmPassword"
+                >
+                <button type="button" class="absolute right-3 top-3 text-sage/60 hover:text-sage">
+                  <i class="fas fa-eye text-lg"></i>
+                </button>
+              </div>
+
+              <div
+                *ngIf="registerForm.errors?.['mismatch'] && confirmPassword.touched"
+                class="error-message"
+              >
+                <small>
+                  * Password and Confirm password must match.
+                </small>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Submit -->
+          <button
+            class="w-full py-3 bg-sage text-white text-base font-semibold rounded-lg hover:bg-sage-dark
+         transition flex items-center justify-center gap-2 mb-6"
+            *ngIf="!isLoading"
+            (click)="onSubmit()">
+            <i class="fas fa-user-plus text-lg"></i>
+            Create Account
+          </button>
+
+          <button
+            class="w-full py-3 bg-sage text-white text-base font-semibold rounded-lg
+         transition flex items-center justify-center gap-2 mb-6"
+            *ngIf="isLoading"
+            disabled>
+            <!-- Spinner SVG -->
+            <svg class="animate-spin h-5 w-5 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4l-3 3 3 3H4z"></path>
+            </svg>
+            Creating Account...
+          </button>
+
+
+          <!-- Social Login -->
+          <div class="flex gap-4 justify-center mb-6">
+            <button class="p-3 border border-sage-light rounded-lg hover:bg-cream transition text-sage text-xl">
+              <i class="fab fa-google"></i>
+            </button>
+            <button class="p-3 border border-sage-light rounded-lg hover:bg-cream transition text-blue-600 text-xl">
+              <i class="fab fa-facebook"></i>
+            </button>
+            <button class="p-3 border border-sage-light rounded-lg hover:bg-cream transition text-sage-dark text-xl">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+
+          <!-- Footer -->
+          <p class="text-center text-sage text-sm">
+            Already have an account?
+            <a href="login.html" class="text-sage-dark font-semibold hover:underline">Sign in</a>
+          </p>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

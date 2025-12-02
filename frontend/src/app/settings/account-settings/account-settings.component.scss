@@ -1,0 +1,10 @@
+:host {
+    display: block;
+  }
+  
+  input[type="checkbox"] {
+    &:checked {
+      @apply accent-primary;
+    }
+  }
+  

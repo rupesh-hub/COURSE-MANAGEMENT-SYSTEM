@@ -1,1 +1,611 @@
-<p>profile works!</p>
+<div class="min-h-screen bg-cream">
+  <!-- Hero Header -->
+  <div class="bg-dashboard-card border-b border-dashboard-border sticky top-0 z-10 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-4xl font-bold text-primary">My Profile</h1>
+          <p class="text-dashboard-secondary mt-1 text-sm">Manage your account, learning, and preferences</p>
+        </div>
+        <button
+          *ngIf="!isEditMode"
+          (click)="toggleEditMode()"
+          class="flex items-center gap-2 px-6 py-3 bg-dashboard-primary hover:bg-dashboard-primary-dark text-dashboard-button rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <i class="fas fa-edit"></i>
+          <span>Edit Profile</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div class="bg-dashboard-card border-b border-dashboard-border sticky top-20 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-8 overflow-x-auto">
+        <button
+          (click)="switchTab('overview')"
+          [class.border-b-2]="activeTab === 'overview'"
+          [class.border-dashboard-primary]="activeTab === 'overview'"
+          [class.text-primary]="activeTab === 'overview'"
+          [class.text-dashboard-secondary]="activeTab !== 'overview'"
+          class="px-4 py-4 font-medium text-sm whitespace-nowrap transition-colors duration-200 border-b-2 border-transparent hover:border-dashboard-border"
+        >
+          <i class="fas fa-user mr-2"></i>Overview
+        </button>
+        <button
+          (click)="switchTab('security')"
+          [class.border-b-2]="activeTab === 'security'"
+          [class.border-dashboard-primary]="activeTab === 'security'"
+          [class.text-primary]="activeTab === 'security'"
+          [class.text-dashboard-secondary]="activeTab !== 'security'"
+          class="px-4 py-4 font-medium text-sm whitespace-nowrap transition-colors duration-200 border-b-2 border-transparent hover:border-dashboard-border"
+        >
+          <i class="fas fa-lock mr-2"></i>Security
+        </button>
+        <button
+          (click)="switchTab('certificates')"
+          [class.border-b-2]="activeTab === 'certificates'"
+          [class.border-dashboard-primary]="activeTab === 'certificates'"
+          [class.text-primary]="activeTab === 'certificates'"
+          [class.text-dashboard-secondary]="activeTab !== 'certificates'"
+          class="px-4 py-4 font-medium text-sm whitespace-nowrap transition-colors duration-200 border-b-2 border-transparent hover:border-dashboard-border"
+        >
+          <i class="fas fa-award mr-2"></i>Certificates
+        </button>
+        <button
+          (click)="switchTab('activity')"
+          [class.border-b-2]="activeTab === 'activity'"
+          [class.border-dashboard-primary]="activeTab === 'activity'"
+          [class.text-primary]="activeTab === 'activity'"
+          [class.text-dashboard-secondary]="activeTab !== 'activity'"
+          class="px-4 py-4 font-medium text-sm whitespace-nowrap transition-colors duration-200 border-b-2 border-transparent hover:border-dashboard-border"
+        >
+          <i class="fas fa-history mr-2"></i>Activity
+        </button>
+        <button
+          (click)="switchTab('billing')"
+          [class.border-b-2]="activeTab === 'billing'"
+          [class.border-dashboard-primary]="activeTab === 'billing'"
+          [class.text-primary]="activeTab === 'billing'"
+          [class.text-dashboard-secondary]="activeTab !== 'billing'"
+          class="px-4 py-4 font-medium text-sm whitespace-nowrap transition-colors duration-200 border-b-2 border-transparent hover:border-dashboard-border"
+        >
+          <i class="fas fa-credit-card mr-2"></i>Billing
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div *ngIf="profile$ | async as profile">
+      <!-- OVERVIEW TAB -->
+      <div *ngIf="activeTab === 'overview'" class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- Sidebar: Profile Card -->
+        <div class="lg:col-span-1">
+          <div class="bg-white rounded-xl shadow-sm border border-primary/70 sticky top-40 overflow-hidden">
+            <!-- Profile Header -->
+            <div class="bg-gradient-to-br from-dashboard-card to-dashboard-card/50 p-6 text-center relative">
+              <div class="flex justify-center mb-4">
+                <div class="relative group">
+                  <img
+                    *ngIf="profile.profileImage"
+                    [src]="profile.profileImage"
+                    alt="Profile"
+                    class="w-28 h-28 rounded-full border-4 border-dashed border-primary/70 object-cover shadow-lg"
+                  />
+                  <div
+                    *ngIf="!profile.profileImage"
+                    class="w-28 h-28 rounded-full border-4 border-primary bg-muted flex items-center justify-center text-4xl font-bold text-primary shadow-lg"
+                  >
+                    {{ getInitials(profile.name) }}
+                  </div>
+                  <button
+                    *ngIf="isEditMode"
+                    (click)="triggerFileInput()"
+                    [disabled]="isLoadingImage"
+                    class="absolute bottom-0 right-0 bg-dashboard-primary hover:bg-dashboard-primary-dark text-dashboard-button rounded-full p-2.5 shadow-lg transition-all duration-200"
+                  >
+                    <i [class]="isLoadingImage ? 'fas fa-spinner fa-spin' : 'fas fa-camera text-sm'"></i>
+                  </button>
+                  <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" class="hidden" />
+                </div>
+              </div>
+              <h2 class="text-2xl font-bold text-primary">{{ profile.name }}</h2>
+              <div class="flex items-center justify-center gap-2 mt-2">
+                <span class="inline-block px-3 py-1 bg-dashboard-primary/20 text-primary/70 text-xs font-semibold rounded-full">
+                  {{ profile.role | titlecase }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="p-6 space-y-4 border-b border-dashboard-border">
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-envelope text-primary w-5 mt-1 flex-shrink-0"></i>
+                  <div class="min-w-0">
+                    <p class="text-xs text-primary font-bold">Email</p>
+                    <p class="text-sm text-primary font-medium truncate">{{ profile.email }}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-phone text-primary w-5 mt-1 flex-shrink-0"></i>
+                  <div class="min-w-0">
+                    <p class="text-xs text-primary font-bold">Phone</p>
+                    <p class="text-sm text-primary font-medium">{{ profile.phone || 'Not provided' }}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-calendar text-primary w-5 mt-1 flex-shrink-0"></i>
+                  <div class="min-w-0">
+                    <p class="text-xs text-primary font-bold">Member Since</p>
+                    <p class="text-sm text-primary font-medium">{{ profile.joinDate | date : 'MMM d, yyyy' }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subscription Status -->
+            <div class="p-6">
+              <div
+                *ngIf="profile.subscription"
+                [ngClass]="{
+                  'bg-muted/50 border-primary border-dashed': profile.subscription.status === 'active',
+                  'bg-red-50 border-red-200': profile.subscription.status === 'inactive'
+                }"
+                class="p-4 rounded-lg border text-center"
+              >
+                <div class="flex items-center justify-center gap-2 mb-2">
+                  <i
+                    [ngClass]="{
+                      'fas fa-check-circle text-primary': profile.subscription.status === 'active',
+                      'fas fa-times-circle text-red-600': profile.subscription.status === 'inactive'
+                    }"
+                  ></i>
+                  <p class="text-xs font-bold text-primary">{{ profile.subscription.type | titlecase }} Membership</p>
+                </div>
+                <p
+                  [ngClass]="{
+                    'text-green-700': profile.subscription.status === 'active',
+                    'text-red-600': profile.subscription.status === 'inactive'
+                  }"
+                  class="text-xs font-medium"
+                >
+                  {{ profile.subscription.status | titlecase }}
+                  <span *ngIf="profile.subscription.expiryDate" class="text-red-600">
+                    • Expires {{ profile.subscription.expiryDate | date : 'MMM d' }}
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content: Right Column -->
+        <div class="lg:col-span-3 space-y-6">
+          <!-- Edit Form (Conditional) -->
+          <div *ngIf="isEditMode" class="bg-white rounded-xl shadow-sm border border-sage-light p-8">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-xl font-bold text-muted flex items-center gap-2">
+                <i class="fas fa-pen-to-square text-sage"></i>
+                Edit Your Information
+              </h3>
+            </div>
+
+            <form [formGroup]="profileForm" class="space-y-6">
+              <!-- Name -->
+              <div>
+                <label class="block text-sm font-semibold text-muted mb-2">
+                  <i class="fas fa-user text-sage mr-2"></i>Full Name
+                </label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="w-full px-4 py-3 border border-sage-light rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all duration-200"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label class="block text-sm font-semibold text-muted mb-2">
+                  <i class="fas fa-envelope text-sage mr-2"></i>Email Address
+                </label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="w-full px-4 py-3 border border-sage-light rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all duration-200"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label class="block text-sm font-semibold text-muted mb-2">
+                  <i class="fas fa-phone text-sage mr-2"></i>Phone Number
+                </label>
+                <input
+                  type="tel"
+                  formControlName="phone"
+                  class="w-full px-4 py-3 border border-sage-light rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all duration-200"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+
+              <!-- Bio -->
+              <div>
+                <label class="block text-sm font-semibold text-muted mb-2">
+                  <i class="fas fa-pen-fancy text-sage mr-2"></i>Bio
+                </label>
+                <textarea
+                  formControlName="bio"
+                  rows="4"
+                  class="w-full px-4 py-3 border border-sage-light rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all duration-200 resize-none"
+                  placeholder="Tell us about yourself..."
+                ></textarea>
+                <p class="text-xs text-sage mt-2">{{ (profileForm.get('bio')?.value || '').length }}/500 characters</p>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex gap-3 pt-4">
+                <button
+                  type="button"
+                  (click)="saveProfile()"
+                  [disabled]="profileForm.invalid"
+                  class="flex-1 bg-primary hover:bg-primary-dark disabled:bg-primary text-cream px-6 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2"
+                >
+                  <i class="fas fa-save"></i>
+                  <span>Save Changes</span>
+                </button>
+                <button
+                  type="button"
+                  (click)="cancelEdit()"
+                  class="flex-1 bg-primary hover:bg-primary/80 text-muted px-6 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2"
+                >
+                  <i class="fas fa-times"></i>
+                  <span>Cancel</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              *ngFor="let stat of stats"
+              class="bg-primary rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200"
+            >
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <p class="text-muted font-medium text-sm">{{ stat.label }}</p>
+                  <p class="text-3xl font-bold text-muted mt-2">{{ stat.value }}</p>
+                </div>
+                <div class="text-4xl opacity-80 text-muted">
+                  <i [class]="stat.icon" class="text-muted"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Learning Progress Section -->
+          <div class="bg-muted rounded-xl shadow-sm p-8">
+            <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+              <i class="fas fa-chart-line text-primary"></i>
+              Learning Progress
+            </h3>
+
+            <div class="space-y-6">
+              <!-- Total Courses -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <p class="text-sm font-semibold text-secondary">Total Courses Enrolled</p>
+                  <span class="text-lg font-bold text-secondary">{{ profile.totalCoursesEnrolled }}</span>
+                </div>
+                <div class="w-full bg-secondary/20 rounded-full h-3">
+                  <div
+                    class="bg-secondary h-3 rounded-full transition-all duration-500"
+                    [style.width.%]="(profile.completedCourses / profile.totalCoursesEnrolled) * 100"
+                  ></div>
+                </div>
+                <p class="text-xs text-secondary mt-2">{{ profile.completedCourses }} completed</p>
+              </div>
+
+              <!-- Completion Rate -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <p class="text-sm font-semibold text-secondary">Completion Rate</p>
+                  <span class="text-lg font-bold text-secondary">
+                    {{ ((profile.completedCourses / profile.totalCoursesEnrolled) * 100) | number : '1.0-0' }}%
+                  </span>
+                </div>
+                <div class="w-full bg-secondary/20 rounded-full h-3">
+                  <div
+                    class="bg-secondary h-3 rounded-full transition-all duration-500"
+                    [style.width.%]="(profile.completedCourses / profile.totalCoursesEnrolled) * 100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Badges Section -->
+          <div class="bg-muted rounded-xl shadow-sm p-8">
+            <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+              <i class="fas fa-star text-primary"></i>
+              Your Skills
+            </h3>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+              <div
+                *ngFor="let badge of skillBadges"
+                class="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/50 transition-colors duration-200"
+              >
+                <i [class]="badge.icon + ' text-2xl text-secondary mb-2 block'"></i>
+                <p class="text-sm font-semibold text-secondary">{{ badge.name }}</p>
+                <p class="text-xs text-secondary mt-1">{{ badge.level }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-muted rounded-xl shadow-sm p-8">
+            <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+              <i class="fas fa-lightning-bolt text-primary"></i>
+              Quick Actions
+            </h3>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <button
+                (click)="changePassword()"
+                class="flex flex-col items-center gap-3 px-4 py-4 bg-primary hover:bg-primary text-muted hover:text-cream rounded-lg font-medium transition-all duration-200 group"
+              >
+                <i class="fas fa-lock text-xl group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs text-center">Change Password</span>
+              </button>
+              <button
+                (click)="downloadData()"
+                class="flex flex-col items-center gap-3 px-4 py-4 bg-primary hover:bg-primary text-muted hover:text-cream rounded-lg font-medium transition-all duration-200 group"
+              >
+                <i class="fas fa-download text-xl group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs text-center">Download Data</span>
+              </button>
+              <button
+                class="flex flex-col items-center gap-3 px-4 py-4 bg-primary hover:bg-primary text-muted hover:text-cream rounded-lg font-medium transition-all duration-200 group"
+              >
+                <i class="fas fa-bell text-xl group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs text-center">Notifications</span>
+              </button>
+              <button
+                class="flex flex-col items-center gap-3 px-4 py-4 bg-primary hover:bg-primary text-muted hover:text-cream rounded-lg font-medium transition-all duration-200 group"
+              >
+                <i class="fas fa-circle-question text-xl group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs text-center">Get Help</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECURITY TAB -->
+      <div *ngIf="activeTab === 'security'" class="max-w-4xl">
+        <div class="bg-white rounded-xl shadow-sm border border-primary p-8 space-y-6">
+          <!-- Two-Factor Authentication -->
+          <div class="pb-6 border-b border-primary">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-secondary flex items-center gap-2">
+                  <i class="fas fa-shield-alt text-secondary"></i>
+                  Two-Factor Authentication
+                </h3>
+                <p class="text-sm text-secondary/80 mt-1">Add an extra layer of security to your account</p>
+              </div>
+              <button
+                (click)="enableTwoFactor()"
+                class="px-6 py-2 bg-primary/90 hover:bg-primary text-cream rounded-lg font-medium transition-colors duration-200"
+              >
+                Enable
+              </button>
+            </div>
+          </div>
+
+          <!-- Change Password -->
+          <div class="pb-6 border-b border-sage-light">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-secondary flex items-center gap-2">
+                  <i class="fas fa-key text-secondary"></i>
+                  Change Password
+                </h3>
+                <p class="text-sm text-secondary mt-1">Update your password regularly for security</p>
+              </div>
+              <button
+                (click)="changePassword()"
+                class="px-6 py-2 bg-primary hover:bg-primary/90 text-cream rounded-lg font-medium transition-colors duration-200"
+              >
+                Change
+              </button>
+            </div>
+          </div>
+
+          <!-- Login History -->
+          <div>
+            <h3 class="text-lg font-bold text-secondary mb-4 flex items-center gap-2">
+              <i class="fas fa-history text-secondary"></i>
+              Login History
+            </h3>
+            <div class="space-y-3">
+              <div
+                *ngFor="let login of loginHistory; let i = index"
+                class="flex items-center justify-between p-4 bg-primary/20 border border-secondary/70 rounded-lg hover:bg-primary/40 transition-colors duration-200"
+              >
+                <div class="flex-1">
+                  <p class="font-semibold text-secondary">{{ login.device }}</p>
+                  <p class="text-sm text-secondary/80">{{ login.location }}</p>
+                  <p class="text-xs text-secondary/80 mt-1">{{ login.timestamp | date : 'short' }}</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span
+                    [class.bg-green-100]="login.status === 'active'"
+                    [class.bg-gray-100]="login.status !== 'active'"
+                    class="px-3 py-1 rounded-full text-xs font-semibold"
+                    [class.text-green-700]="login.status === 'active'"
+                    [class.text-gray-700]="login.status !== 'active'"
+                  >
+                    {{ login.status | titlecase }}
+                  </span>
+                  <button
+                    (click)="revokeDevice(i)"
+                    class="px-3 py-1 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
+                  >
+                    Revoke
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATES TAB -->
+      <div *ngIf="activeTab === 'certificates'" class="max-w-4xl">
+        <div class="bg-white rounded-xl shadow-sm border border-dashed border-primary/70 p-8">
+          <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+            <i class="fas fa-award text-primary"></i>
+            Your Certificates
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div
+              *ngFor="let cert of certificates"
+              class="relative bg-gradient-to-br from-primary to-primary/70 rounded-lg p-6 border border-sage-light hover:shadow-md transition-all duration-200"
+            >
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <i [class]="cert.image + ' text-3xl text-muted mb-3 block'"></i>
+                  <h4 class="font-bold text-muted">{{ cert.name }}</h4>
+                  <p class="text-sm text-muted mt-2">Issued: {{ cert.issueDate | date : 'MMM d, yyyy' }}</p>
+                </div>
+              </div>
+              <div class="flex gap-2 mt-4">
+                <button
+                  (click)="downloadCertificate(cert.id)"
+                  class="flex-1 px-3 py-2 bg-primary hover:bg-primary-dark text-cream text-xs font-medium rounded-lg transition-colors duration-200"
+                >
+                  <i class="fas fa-download mr-2"></i>Download
+                </button>
+                <button
+                  class="flex-1 px-3 py-2 bg-primary hover:bg-primary/80 text-muted text-xs font-medium rounded-lg transition-colors duration-200"
+                >
+                  <i class="fas fa-share mr-2"></i>Share
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="certificates.length === 0" class="text-center py-12">
+            <i class="fas fa-certificate text-6xl text-sage-light mb-4 block"></i>
+            <p class="text-muted font-semibold">No certificates yet</p>
+            <p class="text-sage text-sm mt-2">Complete courses to earn certificates</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVITY TAB -->
+      <div *ngIf="activeTab === 'activity'" class="max-w-4xl">
+        <div class="bg-white rounded-xl shadow-sm border border-dashed border-secondary/70 p-8">
+          <h3 class="text-lg font-bold text-secondary mb-6 flex items-center gap-2">
+            <i class="fas fa-clock text-secondary"></i>
+            Recent Activity
+          </h3>
+
+          <div class="space-y-4">
+            <div
+              *ngFor="let activity of recentActivity"
+              class="flex gap-4 p-4 rounded-lg bg-secondary/70 hover:bg-secondary/80 transition-colors duration-200"
+            >
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+                  <i [class]="activity.icon + ' text-muted'"></i>
+                </div>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-muted">{{ activity.action }}</p>
+                <p class="text-sm text-muted">{{ activity.description }}</p>
+                <p class="text-xs text-muted mt-1">{{ activity.timestamp | date : 'short' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BILLING TAB -->
+      <div *ngIf="activeTab === 'billing'" class="max-w-4xl">
+        <div class="space-y-6">
+          <!-- Payment Methods -->
+          <div class="bg-muted rounded-xl shadow-sm border border-primary/70 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-lg font-bold text-primary flex items-center gap-2">
+                <i class="fas fa-credit-card text-primary"></i>
+                Payment Methods
+              </h3>
+              <button class="px-4 py-2 bg-primary hover:bg-primary-dark text-cream rounded-md text-sm font-medium transition-colors duration-200">
+                <i class="fas fa-plus mr-2"></i>Add Card
+              </button>
+            </div>
+
+            <div class="space-y-3">
+              <div
+                *ngFor="let payment of paymentMethods"
+                class="flex items-center justify-between p-4 bg-primary rounded-md hover:bg-primary/90 transition-colors duration-200"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-8 bg-muted/90 rounded flex items-center justify-center">
+                    <i class="fas fa-credit-card text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-muted">{{ payment.type }} •••• {{ payment.lastFour }}</p>
+                    <p class="text-sm text-muted">Expires {{ payment.expiryDate }}</p>
+                  </div>
+                </div>
+                <button
+                  (click)="removePaymentMethod(payment.id)"
+                  class="px-3 py-1 text-xs font-medium text-red-600 bg-muted/90 hover:bg-red-50 rounded-sm transition-colors duration-200"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscription Plans -->
+          <div class="bg-muted rounded-xl shadow-sm border border-primary/70 p-8">
+            <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+              <i class="fas fa-box text-primary"></i>
+              Subscription Plan
+            </h3>
+
+            <div *ngIf="profile.subscription" class="bg-primary/20 border-2 border-dashed border-secondary/70 rounded-lg p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-lg font-bold text-primary">{{ profile.subscription.type | titlecase }} Plan</p>
+                  <p class="text-sm text-primary mt-2">
+                    <span *ngIf="profile.subscription.status === 'active'" class="text-green-600 font-semibold">
+                      Active • Renews on {{ profile.subscription.renewalDate | date : 'MMM d, yyyy' }}
+                    </span>
+                    <span *ngIf="profile.subscription.status === 'inactive'" class="text-red-600 font-semibold">
+                      Inactive
+                    </span>
+                  </p>
+                </div>
+                <button class="px-6 py-2 bg-primary hover:bg-primary-dark text-cream rounded-lg font-medium transition-colors duration-200">
+                  Manage Plan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

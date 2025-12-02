@@ -15,6 +15,6 @@ public class AuditAwareImpl implements AuditorAware<String> {
      */
     @Override
     public Optional<String> getCurrentAuditor() {
-        return Optional.of("PRODUCT-SERVICE-MS");
+        return Optional.of("COURSE-MANAGEMENT-SYSTEM");
     }
 }

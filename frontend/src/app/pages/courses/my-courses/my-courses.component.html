@@ -1,0 +1,140 @@
+<div class="bg-background min-h-screen">
+    <!-- Header -->
+    <div class="bg-gradient-primary text-white py-8 px-6">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-4xl font-bold mb-2">My Courses</h1>
+        <p class="text-white/80">Continue learning and master new skills</p>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <!-- Search & Filters -->
+      <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <!-- Search -->
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-foreground mb-2">Search Courses</label>
+            <div class="relative">
+              <i class="fas fa-search absolute left-3 top-3 text-muted-foreground"></i>
+              <input
+                type="text"
+                [(ngModel)]="searchQuery"
+                (ngModelChange)="onSearch()"
+                placeholder="Search by title or category..."
+                class="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+              />
+            </div>
+          </div>
+  
+          <!-- Level Filter -->
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">Level</label>
+            <select
+              [(ngModel)]="filterLevel"
+              (ngModelChange)="onFilterChange()"
+              class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+            >
+              <option value="all">All Levels</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+  
+          <!-- Sort -->
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">Sort By</label>
+            <select
+              [(ngModel)]="sortBy"
+              (ngModelChange)="onSortChange()"
+              class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+            >
+              <option value="recent">Most Recent</option>
+              <option value="rating">Top Rated</option>
+              <option value="students">Most Popular</option>
+            </select>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Courses Grid -->
+      <div *ngIf="isLoading" class="flex justify-center items-center py-12">
+        <div class="animate-spin">
+          <i class="fas fa-spinner text-primary text-4xl"></i>
+        </div>
+      </div>
+  
+      <div *ngIf="!isLoading && filteredCourses.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let course of filteredCourses" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <!-- Course Image -->
+          <div class="relative h-48 overflow-hidden bg-muted">
+            <img [src]="course.thumbnail" [alt]="course.title" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
+            <div class="absolute top-3 right-3">
+              <span *ngIf="course.isBestseller" class="bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded">
+                Bestseller
+              </span>
+            </div>
+          </div>
+  
+          <!-- Course Info -->
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-foreground mb-2 line-clamp-2">{{ course.title }}</h3>
+            <p class="text-sm text-muted-foreground mb-3">by {{ course.instructor.firstname }} {{ course.instructor.lastname }}</p>
+  
+            <!-- Rating -->
+            <div class="flex items-center gap-2 mb-4">
+              <div class="flex text-yellow-400">
+                <i *ngFor="let i of [1,2,3,4,5]" [ngClass]="i <= Math.floor(course.rating || 0) ? 'fas fa-star' : 'far fa-star'" class="text-xs"></i>
+              </div>
+              <span class="text-sm font-semibold text-foreground">{{ course.rating }}</span>
+              <span class="text-xs text-muted-foreground">({{ course.reviews | number }})</span>
+            </div>
+  
+            <!-- Progress Bar -->
+            <div class="mb-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-medium text-foreground">Progress</span>
+                <span class="text-xs font-semibold text-primary">{{ getProgressPercentage(course) }}%</span>
+              </div>
+              <div class="w-full bg-muted rounded-full h-2">
+                <div class="bg-primary h-2 rounded-full" [style.width.%]="getProgressPercentage(course)"></div>
+              </div>
+            </div>
+  
+            <!-- Course Stats -->
+            <div class="flex justify-between text-xs text-muted-foreground mb-4 pb-4 border-b border-border">
+              <div class="flex items-center gap-1">
+                <i class="fas fa-clock"></i>
+                <span>{{ course.duration }} hours</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-users"></i>
+                <span>{{ course.students | number }}</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-signal"></i>
+                <span>{{ course.level }}</span>
+              </div>
+            </div>
+  
+            <!-- Action Button -->
+            <button [routerLink]="['/courses', course.id]" class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+              Continue Learning
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Empty State -->
+      <div *ngIf="!isLoading && filteredCourses.length === 0" class="text-center py-12">
+        <i class="fas fa-book-open text-6xl text-muted mb-4"></i>
+        <h3 class="text-2xl font-semibold text-foreground mb-2">No Courses Found</h3>
+        <p class="text-muted-foreground mb-6">Try adjusting your filters or search criteria</p>
+        <button [routerLink]="['/courses']" class="bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+          Browse All Courses
+        </button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,1 +1,117 @@
-<p>preferences works!</p>
+<div class="bg-background min-h-screen">
+    <!-- Header -->
+    <div class="bg-gradient-primary text-white py-8 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-2">Preferences</h1>
+        <p class="text-white/80">Customize your learning experience</p>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto px-6 py-8">
+      <div class="grid grid-cols-1 gap-6">
+        <!-- Learning Preferences -->
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Learning Preferences</h2>
+  
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-foreground mb-3">Preferred Learning Pace</label>
+              <div class="space-y-2">
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="radio" name="pace" value="flexible" [(ngModel)]="learningPace" class="mr-3" />
+                  <div>
+                    <span class="font-medium text-foreground">Flexible</span>
+                    <p class="text-sm text-muted-foreground">Learn at your own pace</p>
+                  </div>
+                </label>
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="radio" name="pace" value="structured" [(ngModel)]="learningPace" class="mr-3" />
+                  <div>
+                    <span class="font-medium text-foreground">Structured</span>
+                    <p class="text-sm text-muted-foreground">Follow a weekly schedule</p>
+                  </div>
+                </label>
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="radio" name="pace" value="intensive" [(ngModel)]="learningPace" class="mr-3" />
+                  <div>
+                    <span class="font-medium text-foreground">Intensive</span>
+                    <p class="text-sm text-muted-foreground">Complete courses quickly</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+  
+            <div>
+              <label class="block text-sm font-medium text-foreground mb-3">Preferred Content Type</label>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="checkbox" [(ngModel)]="contentTypes.video" class="mr-2" />
+                  <span class="text-sm font-medium">Video</span>
+                </label>
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="checkbox" [(ngModel)]="contentTypes.articles" class="mr-2" />
+                  <span class="text-sm font-medium">Articles</span>
+                </label>
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="checkbox" [(ngModel)]="contentTypes.quizzes" class="mr-2" />
+                  <span class="text-sm font-medium">Quizzes</span>
+                </label>
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="checkbox" [(ngModel)]="contentTypes.projects" class="mr-2" />
+                  <span class="text-sm font-medium">Projects</span>
+                </label>
+                <label class="flex items-center p-3 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                  <input type="checkbox" [(ngModel)]="contentTypes.discussions" class="mr-2" />
+                  <span class="text-sm font-medium">Discussions</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Display Preferences -->
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Display Preferences</h2>
+  
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+              <div>
+                <h3 class="font-semibold text-foreground">Dark Mode</h3>
+                <p class="text-sm text-muted-foreground">Enable dark theme</p>
+              </div>
+              <input type="checkbox" [(ngModel)]="displayPreferences.darkMode" class="w-5 h-5 cursor-pointer" />
+            </div>
+  
+            <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+              <div>
+                <h3 class="font-semibold text-foreground">Compact View</h3>
+                <p class="text-sm text-muted-foreground">Show less spacing between elements</p>
+              </div>
+              <input type="checkbox" [(ngModel)]="displayPreferences.compactView" class="w-5 h-5 cursor-pointer" />
+            </div>
+  
+            <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+              <div>
+                <h3 class="font-semibold text-foreground">Auto-play Videos</h3>
+                <p class="text-sm text-muted-foreground">Automatically play next video</p>
+              </div>
+              <input type="checkbox" [(ngModel)]="displayPreferences.autoPlayVideos" class="w-5 h-5 cursor-pointer" />
+            </div>
+          </div>
+        </div>
+  
+        <!-- Save Button -->
+        <div class="flex gap-3">
+          <button (click)="savePreferences()" class="bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+            <i class="fas fa-save mr-2"></i>
+            Save Preferences
+          </button>
+          <button (click)="resetToDefault()" class="bg-muted hover:bg-gray-300 text-foreground font-semibold py-2 px-6 rounded-lg transition-colors">
+            Reset to Default
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

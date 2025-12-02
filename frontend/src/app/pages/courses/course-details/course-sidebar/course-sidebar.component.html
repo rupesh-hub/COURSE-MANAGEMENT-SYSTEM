@@ -1,0 +1,95 @@
+<!-- Sidebar -->
+<div class="space-y-6 sticky top-4" *ngIf="course">
+  <!-- Course Card -->
+  <div class="bg-card rounded-lg overflow-hidden border border-border">
+    <img
+      [src]="course.thumbnail"
+      [alt]="course.title"
+      class="w-full aspect-video object-cover"
+    />
+    <div class="p-6 space-y-4">
+      <div>
+        <div class="text-3xl font-bold text-foreground">${{ course.price }}</div>
+        <div class="text-foreground/60 line-through text-sm" *ngIf="course.originalPrice">${{ course.originalPrice }}</div>
+        <div class="text-accent font-semibold text-sm" *ngIf="course.originalPrice">
+          {{ ((course.originalPrice - course.price) / course.originalPrice * 100) | number:'1.0-0' }}% off
+        </div>
+      </div>
+
+      <button class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition">
+        Enroll Now
+      </button>
+
+      <button class="w-full border-2 border-accent text-accent hover:bg-accent/10 font-bold py-3 rounded-lg transition">
+        Add to Wishlist
+      </button>
+
+      <div class="text-xs text-foreground/60 text-center pt-4 border-t border-border">
+        30-Day Money-Back Guarantee
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Info -->
+  <div class="bg-card rounded-lg p-6 border border-border space-y-4">
+    <h3 class="font-bold text-foreground">Course Details</h3>
+
+    <div class="space-y-3 text-sm">
+      <div class="flex items-center gap-3 text-foreground/80">
+        <span class="text-lg flex-shrink-0">📚</span>
+        <div>
+          <div class="font-semibold text-foreground">{{ course.lessons?.length || 0 }}</div>
+          <div>Lessons included</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-foreground/80">
+        <span class="text-lg flex-shrink-0">⏱️</span>
+        <div>
+          <div class="font-semibold text-foreground">{{ formatDuration(course.totalDuration || 0) }}</div>
+          <div>Total duration</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-foreground/80">
+        <span class="text-lg flex-shrink-0">📊</span>
+        <div>
+          <div class="font-semibold text-foreground">{{ course.level }}</div>
+          <div>Experience level</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-foreground/80">
+        <span class="text-lg flex-shrink-0">🌐</span>
+        <div>
+          <div class="font-semibold text-foreground">{{ course.language }}</div>
+          <div>Language</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-foreground/80">
+        <span class="text-lg flex-shrink-0">👥</span>
+        <div>
+          <div class="font-semibold text-foreground">{{ course.students | number }}</div>
+          <div>Students enrolled</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share -->
+  <div class="bg-card rounded-lg p-6 border border-border">
+    <h3 class="font-bold text-foreground mb-4">Share this course</h3>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-accent/10 hover:bg-accent/20 text-accent font-semibold py-2 rounded transition" title="Share on X">
+        𝕏
+      </button>
+      <button class="flex-1 bg-accent/10 hover:bg-accent/20 text-accent font-semibold py-2 rounded transition" title="Share on Facebook">
+        f
+      </button>
+      <button class="flex-1 bg-accent/10 hover:bg-accent/20 text-accent font-semibold py-2 rounded transition" title="Share on LinkedIn">
+        in
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+/* Course header component styling */
+:host {
+  display: block;
+}
+
+.header-wrapper {
+  background: linear-gradient(135deg, var(--primary, #667eea) 0%, var(--primary-dark, #764ba2) 100%);
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+.instructor-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .info-text {
+    color: white;
+
+    p {
+      margin: 0;
+
+      &:first-child {
+        font-weight: 600;
+      }
+
+      &:last-child {
+        opacity: 0.8;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+
+  img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:first-of-type {
+      background-color: var(--accent, #667eea);
+      color: white;
+
+      &:hover {
+        background-color: var(--accent-dark, #5568d3);
+      }
+    }
+
+    &:last-of-type {
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

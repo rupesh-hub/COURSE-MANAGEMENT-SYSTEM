@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.stat-card {
+  @apply bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition-all duration-300;
+}
+
+.stat-icon {
+  @apply p-3 rounded-lg;
+}

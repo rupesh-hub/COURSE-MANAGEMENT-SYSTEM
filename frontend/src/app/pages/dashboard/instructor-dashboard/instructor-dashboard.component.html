@@ -1,1 +1,110 @@
-<p>instructor-dashboard works!</p>
+<div class="min-h-screen bg-cream">
+  <!-- Header -->
+  <div class="bg-gradient-to-r from-sage to-sage-dark text-white py-8 px-4 md:px-8 mb-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">Instructor Dashboard</h1>
+      <p class="text-lg opacity-90">Manage your courses and students</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 md:px-8 pb-8">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div *ngFor="let stat of stats" [ngClass]="stat.color" class="rounded-lg p-6 text-white shadow-lg">
+        <div class="flex items-start justify-between">
+          <div>
+            <p class="text-sm font-semibold opacity-90">{{ stat.title }}</p>
+            <h3 class="text-3xl font-bold mt-2">{{ stat.value }}</h3>
+          </div>
+          <i [class]="stat.icon + ' text-3xl opacity-30'"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- My Courses -->
+      <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-sage-dark flex items-center">
+            <i class="fas fa-book text-sage mr-3"></i> My Courses
+          </h2>
+          <button (click)="createCourse()" class="bg-sage text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-sage-dark">
+            <i class="fas fa-plus mr-2"></i> Create Course
+          </button>
+        </div>
+        <div class="space-y-4">
+          <div *ngFor="let course of myCourses" class="border border-sage-light rounded-lg p-4 hover:shadow-lg transition">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <h3 class="font-bold text-sage-dark">{{ course.title }}</h3>
+                <p class="text-sm text-gray-600 mt-1">{{ course.students }} students enrolled</p>
+              </div>
+              <button (click)="editCourse(course.id)" class="text-sage hover:text-sage-dark text-sm font-semibold">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-amber-400"><i class="fas fa-star"></i> {{ course.rating }}</span>
+              <span class="text-green-600 font-semibold">${{ course.earnings }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-sage-dark mb-6 flex items-center">
+          <i class="fas fa-chart-bar text-sage mr-3"></i> This Month
+        </h2>
+        <div class="space-y-4">
+          <div class="border-b border-sage-light pb-4">
+            <p class="text-sm text-gray-600">New Enrollments</p>
+            <p class="text-3xl font-bold text-sage">+128</p>
+          </div>
+          <div class="border-b border-sage-light pb-4">
+            <p class="text-sm text-gray-600">Course Reviews</p>
+            <p class="text-3xl font-bold text-sage">+45</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600">Messages</p>
+            <p class="text-3xl font-bold text-sage">23</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Students Section -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-sage-dark flex items-center">
+          <i class="fas fa-users text-sage mr-3"></i> Recent Students
+        </h2>
+        <button (click)="viewStudents()" class="text-sage hover:text-sage-dark text-sm font-semibold">View All</button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="border-b border-sage-light">
+          <tr>
+            <th class="text-left py-3 font-semibold text-gray-600">Name</th>
+            <th class="text-left py-3 font-semibold text-gray-600">Courses</th>
+            <th class="text-left py-3 font-semibold text-gray-600">Progress</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let student of students" class="border-b border-sage-light hover:bg-cream">
+            <td class="py-3 font-medium text-sage-dark">{{ student.name }}</td>
+            <td class="py-3 text-gray-600">{{ student.enrolledCourses }}</td>
+            <td class="py-3">
+              <div class="w-24 bg-sage-light rounded-full h-2">
+                <div class="bg-sage h-2 rounded-full" [style.width.%]="student.progress"></div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

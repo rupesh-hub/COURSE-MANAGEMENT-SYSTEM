@@ -7,6 +7,7 @@ import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -28,5 +29,7 @@ public class ErrorResponse {
 
     @Schema(description = "Time representing when the error happened")
     private LocalDateTime timestamp;
+
+    private Map<String, String> errors;
 
 }

@@ -1,0 +1,8 @@
+/* Top nav active state */
+:host ::ng-deep .active-top-nav-link {
+  @apply bg-blue-50 text-blue-600;
+
+  i {
+    @apply text-blue-600 !important;
+  }
+}

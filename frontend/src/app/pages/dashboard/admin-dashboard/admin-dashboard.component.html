@@ -1,1 +1,106 @@
-<p>admin-dashboard works!</p>
+<div class="min-h-screen bg-cream">
+  <!-- Header -->
+  <div class="bg-gradient-to-r from-sage to-sage-dark text-white py-8 px-4 md:px-8 mb-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">Admin Dashboard</h1>
+      <p class="text-lg opacity-90">System Overview & Management</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 md:px-8 pb-8">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div *ngFor="let stat of stats" [ngClass]="stat.color" class="rounded-lg p-6 text-white shadow-lg">
+        <div class="flex items-start justify-between">
+          <div>
+            <p class="text-sm font-semibold opacity-90">{{ stat.title }}</p>
+            <h3 class="text-3xl font-bold mt-2">{{ stat.value }}</h3>
+            <p class="text-xs opacity-75 mt-2" *ngIf="stat.trend">{{ stat.trend }}</p>
+          </div>
+          <i [class]="stat.icon + ' text-3xl opacity-30'"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Recent Users -->
+      <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-sage-dark flex items-center">
+            <i class="fas fa-users text-sage mr-3"></i> Recent Users
+          </h2>
+          <button (click)="manageUsers()" class="text-sage hover:text-sage-dark text-sm font-semibold">View All</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="border-b border-sage-light">
+            <tr>
+              <th class="text-left py-3 font-semibold text-gray-600">Name</th>
+              <th class="text-left py-3 font-semibold text-gray-600">Role</th>
+              <th class="text-left py-3 font-semibold text-gray-600">Join Date</th>
+              <th class="text-left py-3 font-semibold text-gray-600">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of recentUsers" class="border-b border-sage-light hover:bg-cream">
+              <td class="py-3 font-medium text-sage-dark">{{ user.name }}</td>
+              <td class="py-3"><span class="px-2 py-1 bg-sage-light text-sage rounded-full text-xs">{{ user.role }}</span></td>
+              <td class="py-3 text-gray-600">{{ user.joinDate }}</td>
+              <td class="py-3">
+                  <span [class]="user.status === 'active' ? 'text-green-600' : 'text-gray-600'" class="font-semibold">
+                    {{ user.status | titlecase }}
+                  </span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-sage-dark mb-6 flex items-center">
+          <i class="fas fa-history text-sage mr-3"></i> Activity
+        </h2>
+        <div class="space-y-4">
+          <div *ngFor="let activity of recentActivity" class="flex gap-4 pb-4 border-b border-sage-light last:border-0">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 rounded-full bg-sage-light text-sage flex items-center justify-center">
+                <i [class]="activity.icon"></i>
+              </div>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-sage-dark">{{ activity.message }}</p>
+              <p class="text-xs text-gray-600">{{ activity.timestamp | date: 'short' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-sage-dark flex items-center">
+          <i class="fas fa-book text-sage mr-3"></i> Recent Courses
+        </h2>
+        <button (click)="manageCourses()" class="text-sage hover:text-sage-dark text-sm font-semibold">View All</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div *ngFor="let course of recentCourses" class="border border-sage-light rounded-lg p-4 hover:shadow-lg transition">
+          <h3 class="font-bold text-sage-dark mb-2">{{ course.title }}</h3>
+          <p class="text-sm text-gray-600 mb-3">by {{ course.instructor }}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">{{ course.students }} students</span>
+            <div class="text-amber-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-sm text-gray-600">{{ course.rating }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

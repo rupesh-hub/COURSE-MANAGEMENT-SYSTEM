@@ -1,1 +1,238 @@
-<p>account-settings works!</p>
+<div class="bg-background min-h-screen">
+    <!-- Header -->
+    <div class="bg-gradient-primary text-white py-8 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold mb-2">Account Settings</h1>
+        <p class="text-white/80">Manage your account and preferences</p>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="md:col-span-1">
+          <div class="bg-white rounded-lg shadow-sm p-4">
+            <nav class="space-y-2">
+              <button 
+                (click)="switchTab('profile')"
+                [ngClass]="{'bg-blue-50 text-primary border-l-4 border-primary': activeTab === 'profile', 'text-foreground hover:bg-muted': activeTab !== 'profile'}"
+                class="w-full text-left px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2">
+                <i class="fas fa-user"></i>
+                Profile
+              </button>
+              <button 
+                (click)="switchTab('password')"
+                [ngClass]="{'bg-blue-50 text-primary border-l-4 border-primary': activeTab === 'password', 'text-foreground hover:bg-muted': activeTab !== 'password'}"
+                class="w-full text-left px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2">
+                <i class="fas fa-lock"></i>
+                Password
+              </button>
+              <button 
+                (click)="switchTab('notifications')"
+                [ngClass]="{'bg-blue-50 text-primary border-l-4 border-primary': activeTab === 'notifications', 'text-foreground hover:bg-muted': activeTab !== 'notifications'}"
+                class="w-full text-left px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2">
+                <i class="fas fa-bell"></i>
+                Notifications
+              </button>
+              <button 
+                (click)="switchTab('privacy')"
+                [ngClass]="{'bg-blue-50 text-primary border-l-4 border-primary': activeTab === 'privacy', 'text-foreground hover:bg-muted': activeTab !== 'privacy'}"
+                class="w-full text-left px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2">
+                <i class="fas fa-shield-alt"></i>
+                Privacy
+              </button>
+            </nav>
+          </div>
+        </div>
+  
+        <!-- Settings Content -->
+        <div class="md:col-span-3">
+          <!-- Success Message -->
+          <div *ngIf="successMessage" class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center gap-2">
+            <i class="fas fa-check-circle"></i>
+            {{ successMessage }}
+          </div>
+  
+          <!-- Error Message -->
+          <div *ngIf="errorMessage" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-center gap-2">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ errorMessage }}
+          </div>
+  
+          <!-- Profile Tab -->
+          <div *ngIf="activeTab === 'profile'" class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-foreground mb-6">Edit Profile</h2>
+  
+            <form [formGroup]="accountForm" (ngSubmit)="saveProfile()" class="space-y-6">
+              <!-- Avatar Section -->
+              <div class="text-center pb-6 border-b border-border">
+                <img [src]="userProfile.avatar" alt="Avatar" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                <label class="inline-block">
+                  <span class="bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg cursor-pointer transition-colors">
+                    <i class="fas fa-camera mr-2"></i>
+                    Change Avatar
+                  </span>
+                  <input type="file" (change)="uploadAvatar($event)" accept="image/*" class="hidden">
+                </label>
+              </div>
+  
+              <!-- Name Fields -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">First Name</label>
+                  <input type="text" formControlName="firstName" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                  <input type="text" formControlName="lastName" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                </div>
+              </div>
+  
+              <!-- Contact Fields -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">Email</label>
+                  <input type="email" formControlName="email" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">Phone</label>
+                  <input type="tel" formControlName="phone" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                </div>
+              </div>
+  
+              <!-- Bio -->
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">Bio</label>
+                <textarea formControlName="bio" rows="3" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none"></textarea>
+              </div>
+  
+              <!-- Website & Country -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">Website</label>
+                  <input type="url" formControlName="website" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">Country</label>
+                  <select formControlName="country" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                    <option>United States</option>
+                    <option>Canada</option>
+                    <option>United Kingdom</option>
+                    <option>Australia</option>
+                    <option>Germany</option>
+                    <option>France</option>
+                  </select>
+                </div>
+              </div>
+  
+              <!-- Save Button -->
+              <div class="flex gap-3 pt-6">
+                <button type="submit" [disabled]="isSaving" class="bg-primary hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                  <i *ngIf="!isSaving" class="fas fa-save mr-2"></i>
+                  <i *ngIf="isSaving" class="fas fa-spinner animate-spin mr-2"></i>
+                  {{ isSaving ? 'Saving...' : 'Save Changes' }}
+                </button>
+                <button type="button" class="bg-muted text-foreground hover:bg-gray-300 font-semibold py-2 px-6 rounded-lg transition-colors">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+  
+          <!-- Password Tab -->
+          <div *ngIf="activeTab === 'password'" class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-foreground mb-6">Change Password</h2>
+  
+            <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" class="space-y-6 max-w-md">
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">Current Password</label>
+                <input type="password" formControlName="currentPassword" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">New Password</label>
+                <input type="password" formControlName="newPassword" placeholder="At least 8 characters" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                <p class="text-xs text-muted-foreground mt-1">Must be at least 8 characters long</p>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none" />
+                <p *ngIf="passwordForm.hasError('passwordMismatch')" class="text-xs text-destructive mt-1">Passwords do not match</p>
+              </div>
+  
+              <button type="submit" [disabled]="isSaving || passwordForm.invalid" class="w-full bg-primary hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                <i *ngIf="!isSaving" class="fas fa-check mr-2"></i>
+                <i *ngIf="isSaving" class="fas fa-spinner animate-spin mr-2"></i>
+                {{ isSaving ? 'Updating...' : 'Update Password' }}
+              </button>
+            </form>
+          </div>
+  
+          <!-- Notifications Tab -->
+          <div *ngIf="activeTab === 'notifications'" class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-foreground mb-6">Notification Preferences</h2>
+  
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                <div>
+                  <h3 class="font-semibold text-foreground">Course Updates</h3>
+                  <p class="text-sm text-muted-foreground">Get notified when new lessons are added</p>
+                </div>
+                <input type="checkbox" class="w-5 h-5 cursor-pointer" checked>
+              </div>
+  
+              <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                <div>
+                  <h3 class="font-semibold text-foreground">Messages</h3>
+                  <p class="text-sm text-muted-foreground">Receive messages from instructors</p>
+                </div>
+                <input type="checkbox" class="w-5 h-5 cursor-pointer" checked>
+              </div>
+  
+              <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                <div>
+                  <h3 class="font-semibold text-foreground">Promotions</h3>
+                  <p class="text-sm text-muted-foreground">Get special offers and discounts</p>
+                </div>
+                <input type="checkbox" class="w-5 h-5 cursor-pointer">
+              </div>
+  
+              <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                <div>
+                  <h3 class="font-semibold text-foreground">Weekly Digest</h3>
+                  <p class="text-sm text-muted-foreground">Summary of your learning activities</p>
+                </div>
+                <input type="checkbox" class="w-5 h-5 cursor-pointer" checked>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Privacy Tab -->
+          <div *ngIf="activeTab === 'privacy'" class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-foreground mb-6">Privacy Settings</h2>
+  
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                <div>
+                  <h3 class="font-semibold text-foreground">Profile Visibility</h3>
+                  <p class="text-sm text-muted-foreground">Allow others to view your profile</p>
+                </div>
+                <input type="checkbox" class="w-5 h-5 cursor-pointer" checked>
+              </div>
+  
+              <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                <div>
+                  <h3 class="font-semibold text-foreground">Learning History</h3>
+                  <p class="text-sm text-muted-foreground">Share your completed courses</p>
+                </div>
+                <input type="checkbox" class="w-5 h-5 cursor-pointer">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

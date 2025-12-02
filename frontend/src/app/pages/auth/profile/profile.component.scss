@@ -1,0 +1,43 @@
+/* Enhanced styles for professional profile design */
+:host {
+  display: block;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Progress bar animation */
+[style*="width"] {
+  transition: width 0.5s ease;
+}
+
+/* Profile image hover effect */
+.group img:hover {
+  transform: scale(1.05);
+}
+
+/* Icon animations */
+i.group-hover\:scale-110:hover {
+  animation: iconPulse 0.3s ease;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Sticky header shadow */
+.sticky {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}

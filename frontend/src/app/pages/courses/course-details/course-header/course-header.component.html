@@ -1,0 +1,65 @@
+<!-- Course Header -->
+<div class="bg-primary text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div class="lg:col-span-2">
+        <div class="inline-block bg-background px-3 text-foreground py-1 rounded-full text-sm font-medium mb-4">
+          {{ course?.category || 'Course' }}
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4 text-pretty">{{ course?.title }}</h1>
+        <p class="text-lg text-white/80 mb-6">{{ course?.description }}</p>
+
+        <div class="flex items-center gap-4 mb-6" *ngIf="course?.instructor">
+          <div class="flex items-center gap-3">
+            <img
+              [src]="course.instructor?.profile?.path || 'https://via.placeholder.com/40'"
+              [alt]="course.instructor?.firstname"
+              class="w-10 h-10 rounded-full object-cover"
+            />
+            <div>
+              <p class="font-semibold">{{ course?.instructor?.firstname }} {{ course?.instructor?.lastname }}</p>
+              <p class="text-sm text-white/70">{{ course?.instructor?.username }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-sm flex-wrap">
+          <span class="flex items-center gap-2" *ngIf="course?.rating">
+            <span class="text-xl">⭐</span>
+            <span>{{ course.rating }} ({{ course.reviews | number }})</span>
+          </span>
+          <span class="flex items-center gap-2" *ngIf="course?.students">
+            <span class="text-xl">👥</span>
+            <span>{{ course.students | number }} students</span>
+          </span>
+          <span class="flex items-center gap-2" *ngIf="course?.lessons">
+            <span class="text-xl">📚</span>
+            <span>{{ course.lessons.length }} lessons</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-1" *ngIf="course">
+        <div class="bg-white/10 backdrop-blur rounded-lg p-6 border border-white/20">
+          <img
+            [src]="course.thumbnail"
+            [alt]="course.title"
+            class="w-full rounded-lg mb-6 object-cover aspect-video"
+          />
+          <div class="space-y-4">
+            <div class="flex items-baseline gap-2">
+              <span class="text-4xl font-bold">${{ course.price }}</span>
+              <span class="text-white/70 line-through" *ngIf="course.originalPrice">${{ course.originalPrice }}</span>
+            </div>
+            <button class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition">
+              Enroll Now
+            </button>
+            <button class="w-full border-2 border-white hover:bg-white/10 text-white font-bold py-3 rounded-lg transition">
+              Add to Wishlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

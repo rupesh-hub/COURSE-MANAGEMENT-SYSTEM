@@ -1,0 +1,15 @@
+:host {
+    display: block;
+  }
+  
+  // Responsive utilities
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  
+    h1 {
+      font-size: 1.875rem;
+    }
+  }
+  

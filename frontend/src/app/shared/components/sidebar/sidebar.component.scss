@@ -1,0 +1,8 @@
+/* Sidebar active state */
+:host ::ng-deep .active-sidebar-link {
+  @apply bg-blue-50 text-blue-600;;
+
+  i {
+    @apply text-blue-600 !important;
+  }
+}

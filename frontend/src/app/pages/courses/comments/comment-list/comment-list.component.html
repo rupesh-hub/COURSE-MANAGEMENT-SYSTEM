@@ -1,1 +1,90 @@
-<p>comment-list works!</p>
+<!-- Student Reviews -->
+<section class="bg-card rounded-lg p-8 border border-border mt-8">
+  <h2 class="text-2xl font-bold mb-6 text-foreground">Student Reviews</h2>
+
+  <!-- Review Stats -->
+  <div class="bg-accent/10 rounded-lg p-6 mb-8">
+    <div class="flex items-end gap-8 flex-wrap">
+      <div>
+        <div class="text-5xl font-bold text-foreground">4.8</div>
+        <div class="flex items-center gap-1 text-yellow-500 mt-1">
+          <span *ngFor="let i of [1,2,3,4,5]" [class.opacity-50]="i > 4">⭐</span>
+        </div>
+        <p class="text-sm text-foreground/60 mt-2">Based on 2,345 reviews</p>
+      </div>
+      <div class="flex-1 min-w-80 space-y-2">
+        <div *ngFor="let rating of [5,4,3,2,1]" class="flex items-center gap-3">
+          <span class="text-sm text-foreground/60 w-12">{{ rating }} ⭐</span>
+          <div class="flex-1 h-2 bg-border rounded-full overflow-hidden">
+            <div class="h-full bg-yellow-500 rounded-full" [style.width.%]="getRatingPercentage(rating)"></div>
+          </div>
+          <span class="text-sm text-foreground/60 w-12">{{ getRatingCount(rating) }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Review Form -->
+  <div class="bg-background rounded-lg p-6 mb-8 border border-border">
+    <h3 class="font-bold text-foreground mb-4">Share your review</h3>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-foreground mb-2">Your rating</label>
+        <div class="flex gap-2">
+          <button
+            *ngFor="let i of [1,2,3,4,5]"
+            (click)="newComment.rating = i"
+            class="text-3xl hover:scale-110 transition"
+            [class.opacity-50]="i > (newComment?.rating || 0)"
+          >
+            ⭐
+          </button>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-foreground mb-2">Your review</label>
+        <textarea
+          [(ngModel)]="newComment.text"
+          placeholder="Share your experience with this course..."
+          class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent"
+          rows="4"
+        ></textarea>
+      </div>
+      <button
+        (click)="submitComment()"
+        class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-2 rounded-lg transition"
+      >
+        Post Review
+      </button>
+    </div>
+  </div>
+
+  <!-- Comments List -->
+  <div class="space-y-6">
+    <div *ngFor="let comment of comments" class="pb-6 border-b border-border last:border-b-0">
+      <div class="flex items-start gap-4">
+        <img
+          [src]="comment.avatar"
+          alt="{{ comment.author }}"
+          class="w-12 h-12 rounded-full flex-shrink-0"
+        />
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+            <div>
+              <h3 class="font-semibold text-foreground">{{ comment.author }}</h3>
+              <p class="text-sm text-foreground/60">{{ comment.date }}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 mb-2 text-yellow-500">
+            <span *ngFor="let i of [1,2,3,4,5]" [class.opacity-50]="i > comment.rating">⭐</span>
+          </div>
+          <p class="text-foreground/80">{{ comment.text }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!comments || comments.length === 0" class="text-center text-foreground/60 py-8">
+      No reviews yet. Be the first to review this course!
+    </div>
+  </div>
+</section>

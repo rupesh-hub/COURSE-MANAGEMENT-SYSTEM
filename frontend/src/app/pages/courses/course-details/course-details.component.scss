@@ -1,0 +1,79 @@
+/* Course details page styling */
+:host {
+  display: block;
+}
+
+.course-container {
+  background: var(--background);
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+
+  @media (max-width: 1024px) {
+    padding: 2rem 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 280px;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+}
+
+.sidebar {
+  width: 100%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: var(--background);
+
+  .loading-text {
+    text-align: center;
+
+    .spinner {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--foreground-muted);
+      margin: 0;
+    }
+  }
+}

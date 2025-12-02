@@ -11,5 +11,5 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 public class StorageProperties {
-    private String uploadDir = "classpath:/resources/upload";
+    private String uploadDir = "backend/src/main/resources/uploads";
 }

@@ -1,1 +1,23 @@
-<p>course-details works!</p>
+<div class="bg-background" *ngIf="course; else loading">
+  <cms-course-header [course]="course"></cms-course-header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="lg:col-span-2 space-y-8">
+      <cms-course-content [course]="course"></cms-course-content>
+      <cms-comment-list [comments]="comments" [courseId]="courseId"></cms-comment-list>
+    </div>
+
+    <div class="lg:col-span-1">
+      <cms-course-sidebar [course]="course"></cms-course-sidebar>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="min-h-screen flex items-center justify-center bg-background">
+    <div class="text-center">
+      <div class="text-accent text-2xl mb-2">⏳</div>
+      <p class="text-foreground">Loading course details...</p>
+    </div>
+  </div>
+</ng-template>
