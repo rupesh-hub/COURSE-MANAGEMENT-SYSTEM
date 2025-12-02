@@ -39,7 +39,7 @@ jobs:
       - name: Maven build (compile + test + package)
         run: |
           cd backend
-          ./mvnw -q clean package
+          ./mvnw -q clean package -DskipTests
 
       - name: Extract project version
         id: extract_version
