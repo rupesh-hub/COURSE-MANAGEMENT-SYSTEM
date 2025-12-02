@@ -22,26 +22,27 @@ jobs:
   # 1. BUILD DOCKER IMAGE
   # ----------------------------------------------------
   docker-build:
+    name: Build frontend docker image
     runs-on: self-hosted
-    name: Build frontend image
     outputs:
       VERSION: ${{ steps.extract_version.outputs.VERSION }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Extract version
+      - name: Extract project version
         id: extract_version
         run: |
           cd frontend
-          VERSION=$(grep '"version"' package.json | head -1 | sed -E 's/.*"version": *"([^"]+)".*/\1/')
+          VERSION=$(jq -r '.version' package.json)
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Build image
+      - name: Build Docker image
         run: |
           VERSION=${{ steps.extract_version.outputs.VERSION }}
           docker build \
             -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION \
-            -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:latest \
+            -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }} \
             -f docker/frontend/Dockerfile frontend
 
   # ----------------------------------------------------
