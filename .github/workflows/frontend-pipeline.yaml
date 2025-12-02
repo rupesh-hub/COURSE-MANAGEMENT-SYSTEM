@@ -32,16 +32,19 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Extract version from package.json WITHOUT jq
       - name: Extract project version
         id: extract_version
         run: |
           cd frontend
-          VERSION=$(jq -r '.version' package.json)
+          VERSION=$(grep '"version"' package.json | head -1 | sed -E 's/.*"version": *"([^"]+)".*/\1/')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Extracted frontend version: $VERSION"
 
       - name: Build Docker image
         run: |
           VERSION=${{ steps.extract_version.outputs.VERSION }}
+          echo "Building image with version: $VERSION"
           docker build \
             -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION \
             -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }} \
@@ -59,7 +62,7 @@ jobs:
           path: image.tar
 
   # ----------------------------------------------------
-  # 2. TRIVY SCAN  (DOES NOT FAIL PIPELINE)
+  # 2. TRIVY SCAN (WILL NOT FAIL PIPELINE)
   # ----------------------------------------------------
   trivy-scan:
     name: Scan Docker image
@@ -75,12 +78,12 @@ jobs:
       - name: Load docker image
         run: docker load -i image.tar
 
-      - name: Run Trivy scan (never fails)
+      - name: Run Trivy scan (safe, never fails)
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }}
           format: table
-          exit-code: 0     # <--- DO NOT FAIL PIPELINE
+          exit-code: 0        # ← DO NOT FAIL PIPELINE
           ignore-unfixed: true
           vuln-type: os,library
           severity: CRITICAL,HIGH
@@ -111,6 +114,8 @@ jobs:
       - name: Push image to Docker Hub
         run: |
           VERSION=${{ needs.docker-build.outputs.VERSION }}
+          echo "Pushing images with version: $VERSION"
+
           docker push ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION
           docker push ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }}
 
@@ -122,7 +127,7 @@ jobs:
           echo "${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:latest"
 
   # ----------------------------------------------------
-  # 4. DEPLOY FRONTEND
+  # 4. DEPLOY FRONTEND TO SERVER
   # ----------------------------------------------------
   deployment:
     name: Deploy frontend
