@@ -1,5 +1,7 @@
+import {environment} from '../../../environments/environment';
+
 export const API_CONSTANTS = {
-    BASE_URL: "http://localhost:8181/api/v1.0.0/cms",
+    BASE_URL: environment.API_URL,
     ENDPOINTS: {
       AUTH: {
         LOGIN: "/users/authenticate",
@@ -38,4 +40,3 @@ export const API_CONSTANTS = {
       LONG: 30000,
     },
   }
-  
