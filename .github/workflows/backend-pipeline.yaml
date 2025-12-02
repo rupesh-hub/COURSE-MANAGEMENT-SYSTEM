@@ -23,7 +23,7 @@ jobs:
   # ----------------------------------------------------
   build-backend:
     runs-on: self-hosted
-    name: Build backend & store artifact
+    name: Build backend & generate version
     outputs:
       VERSION: ${{ steps.extract_version.outputs.VERSION }}
     steps:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'corretto'
+          distribution: corretto
 
       - name: Maven build (compile + test + package)
         run: |
@@ -48,36 +48,18 @@ jobs:
           VERSION=$(./mvnw -q -Dexec.executable='echo' \
             -Dexec.args='${project.version}' --non-recursive exec:exec)
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-
-      - name: Upload JAR artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: backend-jar
-          path: backend/target/*.jar
-
+          echo "Extracted backend version: $VERSION"
 
   # ----------------------------------------------------
-  # 2. BUILD DOCKER IMAGE
+  # 2. BUILD DOCKER IMAGE (NO ARTIFACTS)
   # ----------------------------------------------------
   docker-build:
-    name: Build docker image & store artifact
+    name: Build docker image
     runs-on: self-hosted
     needs: build-backend
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Java 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: 17
-          distribution: corretto
-
-      - name: Download JAR artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: backend-jar
-          path: backend/target
 
       - name: Build Docker image
         run: |
@@ -89,46 +71,26 @@ jobs:
             --build-arg PROFILE=default \
             --build-arg APP_VERSION=$VERSION
 
-      - name: Save docker image as artifact
-        run: docker save ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }} -o image.tar
-
-      - name: Upload docker image artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: docker-image
-          path: image.tar
-
-
   # ----------------------------------------------------
-  # 3. TRIVY SCAN (WILL NOT FAIL PIPELINE)
+  # 3. TRIVY SCAN (NO FAIL)
   # ----------------------------------------------------
   trivy-scan:
-    name: Scan Docker image
+    name: Trivy scan
     runs-on: self-hosted
     needs: docker-build
     steps:
-      - name: Download docker image artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: docker-image
-          path: .
-
-      - name: Load docker image
-        run: docker load -i image.tar
-
       - name: Run Trivy scan (never fails)
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }}
           format: table
-          exit-code: 0       # <--- IMPORTANT: don't fail pipeline
+          exit-code: 0       # do not break pipeline
           ignore-unfixed: true
           vuln-type: os,library
           severity: CRITICAL,HIGH
 
-
   # ----------------------------------------------------
-  # 4. PUSH IMAGE TO DOCKER HUB
+  # 4. PUSH IMAGE (USING LOCAL IMAGE)
   # ----------------------------------------------------
   docker-push:
     name: Push Docker image to Hub
@@ -140,15 +102,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_SECRET_KEY }}
-
-      - name: Download docker image artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: docker-image
-          path: .
-
-      - name: Load docker image
-        run: docker load -i image.tar
 
       - name: Push images
         run: |
@@ -162,7 +115,6 @@ jobs:
           echo "FINAL IMAGES:"
           echo "${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION"
           echo "${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:latest"
-
 
   # ----------------------------------------------------
   # 5. DEPLOY TO SERVER
