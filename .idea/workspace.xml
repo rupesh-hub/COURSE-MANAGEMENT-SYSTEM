@@ -5,28 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10dc7ab7-631c-4944-854d-5dfd006ba3ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/CMSSecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/service/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/service/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/service/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/enums/CourseLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/resource/LessonResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/image/entity/Image.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/image/mapper/ImageMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/image/model/ImageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/image/repository/ImageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/image/service/ImageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/UserRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/AuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/util/Utility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/model/auth.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/model/course.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/validators/custom.validator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/validators/password-match.validator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/validators/password.validator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/validators/username.validator.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/.github/workflows/authorization-server-pipeline.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/.github/workflows/frontend-pipeline.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/.github/workflows/resource-server-pipeline.yaml" afterDir="false" />
@@ -232,127 +210,6 @@
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/prod/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/staging/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/frontend/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/ApplicationConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/StorageProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/configuration/StorageProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/entity/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/mapper/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/model/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/model/CommentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/model/CommentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/model/CommentResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/repository/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/resource/CommentResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/resource/CommentResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/service/ICommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment/service/ICommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/entity/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/entity/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/mapper/LessonMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/mapper/LessonMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/model/LessonRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/model/LessonRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/model/LessonResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/model/LessonResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/repository/LessonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/repository/LessonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/service/ILessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/service/ILessonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/service/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/lesson/service/LessonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/mapper/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/mapper/CourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/model/CourseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/model/CourseRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/model/CourseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/model/CourseResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/resource/CourseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/resource/CourseResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/service/ICourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/service/ICourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/AuditAwareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/AuditAwareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/GlobalResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/GlobalResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/shared/service/ImageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/RoleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/RoleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/RoleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/RoleResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/model/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/repository/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/resource/RoleResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/resource/RoleResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/resource/UserResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/resource/UserResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/IRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/IRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/alfarays/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/backend/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/docker/backend/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/default/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/default/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/frontend/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/docker/frontend/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/backend-pipeline.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/guards/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/guards/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/guards/role.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/guards/role.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/models/roles.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/frontend-pipeline.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/models/user.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/role.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/role.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth/token.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/interceptors/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/interceptors/auth.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/interceptors/error.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/interceptors/error.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/services/course.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/services/notification.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/services/notification.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/notifications/notification-list/notification-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/notifications/notification-list/notification-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/notifications/notification-list/notification-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/notifications/notification-list/notification-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/notifications/notification-list/notification-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/notifications/notification-list/notification-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/change-password/change-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/change-password/change-password.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/change-password/change-password.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/change-password/change-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/change-password/change-password.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/forget-password/forget-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/forget-password/forget-password.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/forget-password/forget-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/forget-password/forget-password.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/production/common-config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/profile/profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/profile/profile.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/profile/profile.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/profile/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/register/register.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/register/register.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-add/comment-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-add/comment-add.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-add/comment-add.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-add/comment-add.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-add/comment-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-add/comment-add.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-list/comment-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-list/comment-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-list/comment-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-list/comment-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-list/comment-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/comments/comment-list/comment-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details/course-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details/course-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details/course-details.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details/course-details.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details/course-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details/course-details.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-list/course-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-list/course-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-list/course-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-list/course-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-list/course-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/courses/course-list/course-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/admin-dashboard/admin-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/admin-dashboard/admin-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/admin-dashboard/admin-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/admin-dashboard/admin-dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/instructor-dashboard/instructor-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/instructor-dashboard/instructor-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/instructor-dashboard/instructor-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/instructor-dashboard/instructor-dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/student-dashboard/student-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/student-dashboard/student-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/student-dashboard/student-dashboard.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/student-dashboard/student-dashboard.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/student-dashboard/student-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pages/dashboard/student-dashboard/student-dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/users/user-profile/user-profile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/users/user-profile/user-profile.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/production/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/pages/users/user-profile/user-profile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/settings/account-settings/account-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/settings/account-settings/account-settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/settings/account-settings/account-settings.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/settings/account-settings/account-settings.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/settings/account-settings/account-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/settings/account-settings/account-settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/settings/preferences/preferences.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/settings/preferences/preferences.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/settings/preferences/preferences.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/settings/preferences/preferences.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/settings/preferences/preferences.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/settings/preferences/preferences.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.production.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.production.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/.github/workflows/deploy.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" afterDir="false" />
@@ -567,7 +424,7 @@
       <workItem from="1763302648103" duration="15370000" />
       <workItem from="1764302515495" duration="56353000" />
       <workItem from="1764668435301" duration="1948000" />
-      <workItem from="1764677175261" duration="7997000" />
+      <workItem from="1764677175261" duration="8385000" />
     </task>
     <servers />
   </component>
