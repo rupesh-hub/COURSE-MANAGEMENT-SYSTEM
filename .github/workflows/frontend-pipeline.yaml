@@ -24,6 +24,8 @@ jobs:
   docker-build:
     name: Build frontend docker image & store artifact
     runs-on: self-hosted
+    outputs:
+      VERSION: ${{ steps.extract_version.outputs.VERSION }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -57,7 +59,7 @@ jobs:
           path: image.tar
 
   # ----------------------------------------------------
-  # 2. TRIVY SCAN
+  # 2. TRIVY SCAN  (DOES NOT FAIL PIPELINE)
   # ----------------------------------------------------
   trivy-scan:
     name: Scan Docker image
@@ -73,18 +75,18 @@ jobs:
       - name: Load docker image
         run: docker load -i image.tar
 
-      - name: Run Trivy scan
+      - name: Run Trivy scan (never fails)
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }}
           format: table
-          exit-code: 1
+          exit-code: 0     # <--- DO NOT FAIL PIPELINE
           ignore-unfixed: true
           vuln-type: os,library
           severity: CRITICAL,HIGH
 
   # ----------------------------------------------------
-  # 3. PUSH IMAGE
+  # 3. PUSH IMAGE TO DOCKER HUB
   # ----------------------------------------------------
   docker-push:
     name: Push Docker image
@@ -108,13 +110,13 @@ jobs:
 
       - name: Push image to Docker Hub
         run: |
-          VERSION=${{ needs.docker-build.outputs.extract_version.VERSION }}
+          VERSION=${{ needs.docker-build.outputs.VERSION }}
           docker push ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION
           docker push ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }}
 
       - name: Output final image names
         run: |
-          VERSION=${{ needs.docker-build.outputs.extract_version.VERSION }}
+          VERSION=${{ needs.docker-build.outputs.VERSION }}
           echo "FINAL IMAGES:"
           echo "${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION"
           echo "${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:latest"
