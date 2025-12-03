@@ -9,99 +9,66 @@ on:
       - docker/frontend/Dockerfile
       - docker/docker-compose/default/docker-compose.yaml
       - docker/docker-compose/default/common-config.yaml
-      - .github/workflows/frontend-*.yaml
-
-env:
-  IMAGE_NAME: course-management-system-frontend
-  DOCKER_REPO: ${{ secrets.DOCKERHUB_USERNAME }}
-  DOCKER_LATEST_TAG: latest
+      - .github/workflows/frontend-pipeline.yaml
 
 jobs:
-
-  # ----------------------------------------------------
-  # 1. BUILD DOCKER IMAGE
-  # ----------------------------------------------------
-  docker-build:
+  build-image:
     name: Build frontend docker image
     runs-on: self-hosted
-    outputs:
-      VERSION: ${{ steps.extract_version.outputs.VERSION }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Extract project version
         id: extract_version
         run: |
           cd frontend
-          VERSION=$(jq -r '.version' package.json)
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "VERSION=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
 
-      - name: Build Docker image
-        run: |
-          VERSION=${{ steps.extract_version.outputs.VERSION }}
-          docker build \
-            -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION \
-            -t ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_LATEST_TAG }} \
-            -f docker/frontend/Dockerfile frontend
-
-  # ----------------------------------------------------
-  # 2. TRIVY SCAN — uses SAME local image (no artifact needed)
-  # ----------------------------------------------------
-  trivy-scan:
-    runs-on: self-hosted
-    needs: docker-build
-    steps:
-      - name: Run Trivy scan
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:latest
-          format: table
-          exit-code: 0      # Do not fail pipeline
-          ignore-unfixed: true
-          vuln-type: os,library
-          severity: CRITICAL,HIGH
-
-  # ----------------------------------------------------
-  # 3. PUSH IMAGE — uses same already-built local image
-  # ----------------------------------------------------
-  docker-push:
-    runs-on: self-hosted
-    needs: trivy-scan
-    steps:
-      - name: Login
+      - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_SECRET_KEY }}
 
-      - name: Push image
-        run: |
-          VERSION=${{ needs.docker-build.outputs.VERSION }}
-          docker push ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:$VERSION
-          docker push ${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}:latest
+      - name: Docker build and push image
+        uses: docker/build-push-action@v5
+        with:
+          context: frontend
+          file: docker/frontend/Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/frontend:${{ steps.extract_version.outputs.VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
 
-  # ----------------------------------------------------
-  # 4. DEPLOY
-  # ----------------------------------------------------
   deployment:
+    name: Deploy frontend
     runs-on: self-hosted
-    needs: docker-push
+    needs: [ docker ]
     steps:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Deploy frontend
+      - name: Create deployment folder
         run: |
-          scp docker/docker-compose/default/docker-compose.yaml \
-              ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/
-          scp docker/docker-compose/default/common-config.yaml \
-              ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/
-          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} << 'EOF'
-            cd course-management-system-deployment
-            docker compose down
-            docker compose pull
-            docker compose up -d
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p course-management-system-deployment"
+
+      - name: Copy docker compose and common config files
+        run: |
+          scp docker/docker-compose/default/docker-compose.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/docker-compose.yaml
+          scp docker/docker-compose/default/common-config.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/common-config.yaml
+
+      - name: Setup environment variables
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
+          cd course-management-system-deployment
+          docker-compose -f docker-compose.yaml down
+          docker-compose -f docker-compose.yaml pull -q
+          docker-compose -f docker-compose.yaml up -d
           EOF
