@@ -47,30 +47,30 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/course-management-system-frontend:${{ steps.extract_version.outputs.VERSION }}
             ${{ secrets.DOCKERHUB_USERNAME }}/course-management-system-frontend:latest
 
-#  deployment:
-#    name: Deploy frontend
-#    runs-on: self-hosted
-#    needs: [ build-image ]
-#    steps:
-#      - name: Setup SSH
-#        uses: webfactory/ssh-agent@v0.9.0
-#        with:
-#          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-#
-#      - name: Create deployment folder
-#        run: |
-#          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p course-management-system-deployment"
-#
-#      - name: Copy docker compose and common config files
-#        run: |
-#          scp docker/docker-compose/production/docker-compose.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/docker-compose.yaml
-#          scp docker/docker-compose/production/common-config.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/common-config.yaml
-#
-#      - name: Setup environment variables
-#        run: |
-#          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
-#          cd course-management-system-deployment
-#          docker-compose -f docker-compose.yaml down
-#          docker-compose -f docker-compose.yaml pull -q
-#          docker-compose -f docker-compose.yaml up -d
-#          EOF
+  deployment:
+    name: Deploy frontend
+    runs-on: self-hosted
+    needs: [ build-image ]
+    steps:
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Create deployment folder
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p course-management-system-deployment"
+
+      - name: Copy docker compose and common config files
+        run: |
+          scp docker/docker-compose/production/docker-compose.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/docker-compose.yaml
+          scp docker/docker-compose/production/common-config.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/common-config.yaml
+
+      - name: Setup environment variables
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
+          cd course-management-system-deployment
+          docker-compose -f docker-compose.yaml down
+          docker-compose -f docker-compose.yaml pull -q
+          docker-compose -f docker-compose.yaml up -d
+          EOF

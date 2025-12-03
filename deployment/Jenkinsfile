@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Checkout repository"){
+            steps{
+                echo "Repository checking out..."
+            }
+        }
+
+        stage("Setup environment") {
+            steps{
+                echo "Setting up environment..."
+            }
+        }
+    }
+
+}
