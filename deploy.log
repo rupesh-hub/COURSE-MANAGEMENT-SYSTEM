@@ -1,0 +1,44 @@
+\e[31m[ERROR]\e[0m No arguments provided. Use: build, deploy, build-deploy, down
+\e[34m[2025-12-03 20:07:31]\e[0m Building BACKEND Docker image...
+\e[34m[2025-12-03 20:07:31]\e[0m Running: docker build -t rupesh1997/course-management-system:1.0.0 -f docker/backend/Dockerfile .
+\e[31m[ERROR]\e[0m Command failed: docker build -t rupesh1997/course-management-system:1.0.0 -f docker/backend/Dockerfile .
+\e[34m[2025-12-03 20:14:10]\e[0m Building BACKEND image...
+\e[34m[2025-12-03 20:14:10]\e[0m Running: docker build       -t rupesh1997/course-management-system:1.0.0       -f docker/backend/Dockerfile       ./backend
+\e[32m[SUCCESS]\e[0m Backend image built.
+\e[34m[2025-12-03 20:16:36]\e[0m Building FRONTEND image...
+\e[34m[2025-12-03 20:16:36]\e[0m Running: docker build       -t rupesh1997/course-management-system-frontend:1.0.0       --build-arg CONFIGURATION=docker       -f docker/frontend/Dockerfile       ./frontend
+\e[32m[SUCCESS]\e[0m Frontend image built.
+\e[34m[2025-12-03 20:17:38]\e[0m Deploying services...
+\e[34m[2025-12-03 20:17:38]\e[0m Running: docker compose -f docker/docker-compose/default/docker-compose.yaml up -d
+\e[32m[SUCCESS]\e[0m Deployment completed.
+\e[34m[2025-12-03 20:19:07]\e[0m Running: docker ps
+\e[34m[2025-12-03 20:20:24]\e[0m Stopping stack...
+\e[34m[2025-12-03 20:20:24]\e[0m Running: docker compose -f docker/docker-compose/default/docker-compose.yaml down
+\e[32m[SUCCESS]\e[0m Services stopped.
+\e[33m[WARN]\e[0m Performing Docker cleanup...
+\e[34m[2025-12-03 20:20:27]\e[0m Running: docker container prune -f
+\e[34m[2025-12-03 20:20:27]\e[0m Running: docker image prune -f
+\e[34m[2025-12-03 20:20:27]\e[0m Running: docker volume prune -f
+\e[34m[2025-12-03 20:20:27]\e[0m Running: docker network prune -f
+\e[32m[SUCCESS]\e[0m Cleanup done.
+\e[34m[2025-12-03 20:23:30]\e[0m Deploying services...
+\e[34m[2025-12-03 20:23:30]\e[0m Running: docker compose -f docker/docker-compose/default/docker-compose.yaml up -d
+\e[32m[SUCCESS]\e[0m Deployment completed.
+\e[34m[2025-12-03 20:23:38]\e[0m Running: docker ps
+\e[33m[WARN]\e[0m Backend image already exists: rupesh1997/course-management-system:1.0.0
+\e[33m[WARN]\e[0m Frontend image already exists: rupesh1997/course-management-system-frontend:1.0.0
+\e[34m[2025-12-03 20:24:27]\e[0m Skipping all builds (user selected no).
+\e[33m[WARN]\e[0m Existing containers detected. Stopping...
+\e[34m[2025-12-03 20:24:30]\e[0m Deploying services...
+\e[34m[2025-12-03 20:24:30]\e[0m Running: docker compose -f docker/docker-compose/default/docker-compose.yaml up -d
+\e[32m[SUCCESS]\e[0m Deployment completed.
+\e[34m[2025-12-03 20:24:36]\e[0m Running: docker ps
+\e[34m[2025-12-03 20:26:16]\e[0m Stopping stack...
+\e[34m[2025-12-03 20:26:16]\e[0m Running: docker compose -f docker/docker-compose/default/docker-compose.yaml down
+\e[32m[SUCCESS]\e[0m Services stopped.
+\e[33m[WARN]\e[0m Performing Docker cleanup...
+\e[34m[2025-12-03 20:26:19]\e[0m Running: docker container prune -f
+\e[34m[2025-12-03 20:26:19]\e[0m Running: docker image prune -f
+\e[34m[2025-12-03 20:26:19]\e[0m Running: docker volume prune -f
+\e[34m[2025-12-03 20:26:19]\e[0m Running: docker network prune -f
+\e[32m[SUCCESS]\e[0m Cleanup done.

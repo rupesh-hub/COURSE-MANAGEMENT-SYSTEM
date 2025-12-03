@@ -1,9 +1,14 @@
-FROM node:20 as build
+FROM node:20 AS build
 WORKDIR /app
+
+ARG CONFIGURATION=production
+
 COPY package*.json ./
 RUN npm ci
+
 COPY . .
-RUN npm run build --prod
+
+RUN npm run build -- --configuration $CONFIGURATION
 
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf

@@ -1,4 +1,4 @@
-name: authorization server pipeline
+name: course management system backend pipeline
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     paths:
       - backend/**
       - docker/backend/Dockerfile
-      - docker/docker-compose/default/docker-compose.yaml
-      - docker/docker-compose/default/common-config.yaml
+      - docker/docker-compose/production/docker-compose.yaml
+      - docker/docker-compose/production/common-config.yaml
       - .github/workflows/backend-pipeline.yaml
 
 jobs:
@@ -68,7 +68,7 @@ jobs:
           java-version: 17
           distribution: corretto
 
-      - name: Unit tests
+      - name: Build project
         run: |
           cd backend
           ./mvnw clean package -DskipTests
@@ -139,8 +139,8 @@ jobs:
 
       - name: Copy docker compose and common config files
         run: |
-          scp docker/docker-compose/default/docker-compose.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/docker-compose.yaml
-          scp docker/docker-compose/default/common-config.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/common-config.yaml
+          scp docker/docker-compose/production/docker-compose.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/docker-compose.yaml
+          scp docker/docker-compose/production/common-config.yaml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:course-management-system-deployment/common-config.yaml
 
       - name: Setup environment variables
         run: |
