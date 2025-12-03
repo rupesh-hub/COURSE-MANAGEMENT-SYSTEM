@@ -1,16 +1,22 @@
 pipeline {
     agent any
 
+    environment {
+        SONAR_HOME = tool "Sonar"
+    }
+
     stages {
         stage("Checkout repository"){
             steps{
-                echo "Repository checking out..."
+                git url: "https://github.com/rupesh-hub/COURSE-MANAGEMENT-SYSTEM.git", branch: "main"
             }
         }
 
-        stage("Setup environment") {
+        stage("SonarQube Quality Analysis") {
             steps{
-                echo "Setting up environment..."
+               withSonarQubeEnv("Sonar") {
+                sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=course-management-system -Dsonar.projectKey=course-management-system"
+               }
             }
         }
     }
