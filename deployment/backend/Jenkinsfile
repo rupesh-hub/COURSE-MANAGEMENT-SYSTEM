@@ -13,12 +13,18 @@ pipeline {
         }
 
         stage("SonarQube Quality Analysis") {
-            steps{
-               withSonarQubeEnv("Sonar") {
-                sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=course-management-system -Dsonar.projectKey=course-management-system"
-               }
+            steps {
+                withSonarQubeEnv("Sonar") {
+                    sh '''
+                        cd backend
+                        $SONAR_HOME/bin/sonar-scanner \
+                            -Dsonar.projectName=course-management-system \
+                            -Dsonar.projectKey=course-management-system
+                    '''
+                }
             }
         }
+
     }
 
 }
