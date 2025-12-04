@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10dc7ab7-631c-4944-854d-5dfd006ba3ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/frontend/Jenkinsfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../HOTEL-SERVICE/backend/src/main/java/com/alfarays/configuration/ApplicationConfiguration.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../HOTEL-SERVICE/backend/src/main/java/com/alfarays/model/Message.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../HOTEL-SERVICE/backend/src/main/java/com/alfarays/resource/MessageResource.java" afterDir="false" />
@@ -222,7 +221,6 @@
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/prod/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/staging/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/frontend/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/backend/Jenkinsfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/.github/workflows/deploy.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" afterDir="false" />
@@ -410,11 +408,11 @@
       <recent name="$PROJECT_DIR$/backend/src/main/java/com/alfarays/course/comment" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deployment/backend" />
       <recent name="$PROJECT_DIR$/frontend/src/app/pages/courses/course-details" />
       <recent name="$PROJECT_DIR$/frontend/src/app/shared/components/modal" />
       <recent name="$PROJECT_DIR$/frontend/src/app" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/backend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.alfarays.user.service" />
@@ -442,7 +440,7 @@
       <workItem from="1764668435301" duration="1948000" />
       <workItem from="1764677175261" duration="12520000" />
       <workItem from="1764736964749" duration="12912000" />
-      <workItem from="1764768299271" duration="8824000" />
+      <workItem from="1764768299271" duration="9656000" />
     </task>
     <servers />
   </component>

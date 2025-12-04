@@ -33,7 +33,7 @@ public class CMSSecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users/authenticate", "/roles", "/users/register")
+                        .requestMatchers("/users/authenticate", "/roles", "/users/register", "/ping")
                         .permitAll()
                         .anyRequest()
                         .authenticated())

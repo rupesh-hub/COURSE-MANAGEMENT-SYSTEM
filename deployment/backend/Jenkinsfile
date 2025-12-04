@@ -2,28 +2,75 @@ pipeline {
     agent any
 
     environment {
-        SONAR_HOME = tool "Sonar"
+        PROJECT_NAME = 'course-management-system'
+        BACKEND_IMAGE = 'rupesh1997/course-management-system:1.0.0'
     }
 
     stages {
+
         stage("Checkout repository"){
             steps{
                 git url: "https://github.com/rupesh-hub/COURSE-MANAGEMENT-SYSTEM.git", branch: "main"
             }
         }
 
-        stage("SonarQube Quality Analysis") {
-            steps {
-                withSonarQubeEnv("Sonar") {
-                    sh '''
-                        cd backend
-                        $SONAR_HOME/bin/sonar-scanner \
-                            -Dsonar.projectName=course-management-system \
-                            -Dsonar.projectKey=course-management-system
-                    '''
-                }
+        stage("Build project") {
+            steps{
+                sh '''
+                   cd backend
+                   ./mvnw clean package -DskipTests
+                '''
             }
         }
+
+        stage("Unit Tests"){
+            steps {
+                sh '''
+                cd backend
+                ./mvnw clean test
+                '''
+            }
+        }
+
+        stage("Build docker image"){
+            steps{
+                sh '''
+                docker system prune -f
+                cd backend
+                docker build -t ${BACKEND_IMAGE} -f ../docker/backend/Dockerfile .
+                '''
+            }
+        }
+
+        state("Extract project version") {
+            steps{
+                echo "Extracting project version"
+            }
+        }
+
+        stage("Login to docker hub") {
+            steps {
+                echo "Login to docker hub"
+            }
+        }
+
+        stage("Push to docker hub") {
+            steps {
+                echo "Pushing image to docker hub"
+            }
+        }
+
+        stage("Deploy"){
+           steps {
+            sh '''
+                docker system prune -f
+                docker compose -f docker/docker-compose/production/docker-compose.yaml down
+                docker compose -f docker/docker-compose/production/docker-compose.yaml up -d
+            '''
+           }
+        }
+
+
 
     }
 

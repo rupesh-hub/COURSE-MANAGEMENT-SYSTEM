@@ -36,7 +36,7 @@
         Server authentication token: 
             - click on [+ Add]
             - Or Jenkins > Manage Jenkins > Credentials > (global) > [+ Add Credentials]
-            > Kind: Secret text
+            > Kind: Secret text 
             > Secret: <token>
             > Id: Sonar
             > Description: Sonar

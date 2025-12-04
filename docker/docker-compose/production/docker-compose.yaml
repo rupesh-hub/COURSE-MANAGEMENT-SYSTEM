@@ -61,5 +61,5 @@ volumes:
   # docker ps
   # docker images
   # docker system prune -f
-  # docker compose -f docker/docker-compose/default/docker-compose.yaml down
-  # docker compose -f docker/docker-compose/default/docker-compose.yaml up -d
+  # docker compose -f docker/docker-compose/production/docker-compose.yaml down
+  # docker compose -f docker/docker-compose/production/docker-compose.yaml up -d
