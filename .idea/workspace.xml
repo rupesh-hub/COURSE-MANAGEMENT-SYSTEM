@@ -98,6 +98,15 @@
       <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/resources/data.sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/main/resources/templates/callback.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../OAUTH-DEMO/resource-server-application/src/test/java/com/alfarays/ResourceServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/deployment/docker/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/deployment/docker/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/deployment/jenkins/Jenkinsfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/src/main/java/com/alfarays/JenkinsDemoProject01Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JENKINS-MASTER/JENKINS-DEMO-PROJECT-01/src/test/java/com/alfarays/JenkinsDemoProject01ApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/cart-service-prod.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/cart-service-staging.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../PURELY-GOODS/config-server/src/main/resources/config/order-service-prod.yml" afterDir="false" />
@@ -441,6 +450,7 @@
       <workItem from="1764677175261" duration="12520000" />
       <workItem from="1764736964749" duration="12912000" />
       <workItem from="1764768299271" duration="9656000" />
+      <workItem from="1764838815101" duration="838000" />
     </task>
     <servers />
   </component>

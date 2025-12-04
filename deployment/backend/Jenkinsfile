@@ -42,7 +42,7 @@ pipeline {
             }
         }
 
-        state("Extract project version") {
+        stage("Extract project version") {
             steps{
                 echo "Extracting project version"
             }
