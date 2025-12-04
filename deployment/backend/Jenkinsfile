@@ -64,8 +64,8 @@ pipeline {
            steps {
             sh '''
                 docker system prune -f
-                docker compose -f docker/docker-compose/production/docker-compose.yaml down
-                docker compose -f docker/docker-compose/production/docker-compose.yaml up -d
+                docker-compose -f docker/docker-compose/production/docker-compose.yaml down
+                docker-compose -f docker/docker-compose/production/docker-compose.yaml up -d
             '''
            }
         }

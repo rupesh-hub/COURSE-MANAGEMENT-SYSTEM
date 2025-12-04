@@ -1,0 +1,50 @@
+pipeline {
+
+    agent any
+
+    environment {
+            FRONTEND_IMAGE = 'rupesh1997/course-management-system-frontend:1.0.0'
+            CONFIGURATION = 'production'
+        }
+
+    stages {
+
+        stage("Checkout repository"){
+            steps {
+                git url: "https://github.com/rupesh-hub/COURSE-MANAGEMENT-SYSTEM.git", branch: "main"
+            }
+        }
+
+        stage("Build project") {
+
+            steps{
+                sh '''
+                    cd frontend
+                    ng build --configuration ${CONFIGURATION}
+                '''
+            }
+
+        }
+
+        stage("Build docker image") {
+            steps{
+                sh '''
+                docker system prune -f
+                cd frontend
+                docker build -t ${FRONTEND_IMAGE} -f ../docker/frontend/Dockerfile .
+                '''
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+                sh '''
+                    docker system prune -f
+                    docker-compose -f docker/docker-compose/production/docker-compose.yaml down
+                    docker-compose -f docker/docker-compose/production/docker-compose.yaml up -d
+                '''
+            }
+        }
+
+    }
+}

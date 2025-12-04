@@ -230,6 +230,7 @@
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/prod/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/docker-compose/staging/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUANTUM-CART/docker/frontend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/frontend/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/frontend/Jenkinsfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/.github/workflows/deploy.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../DEV-SEC-OPS-DEMO/docker-compose.yml" afterDir="false" />
@@ -450,7 +451,7 @@
       <workItem from="1764677175261" duration="12520000" />
       <workItem from="1764736964749" duration="12912000" />
       <workItem from="1764768299271" duration="9656000" />
-      <workItem from="1764838815101" duration="838000" />
+      <workItem from="1764838815101" duration="1700000" />
     </task>
     <servers />
   </component>
