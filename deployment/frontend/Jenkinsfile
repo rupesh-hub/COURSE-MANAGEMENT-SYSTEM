@@ -15,17 +15,6 @@ pipeline {
             }
         }
 
-        stage("Build project") {
-
-            steps{
-                sh '''
-                    cd frontend
-                    ng build --configuration ${CONFIGURATION}
-                '''
-            }
-
-        }
-
         stage("Build docker image") {
             steps{
                 sh '''
